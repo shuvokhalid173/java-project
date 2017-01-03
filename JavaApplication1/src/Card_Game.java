@@ -21,6 +21,7 @@ import java.math.BigInteger;
 import java.net.UnknownHostException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -30,7 +31,7 @@ import javax.swing.*;
 
 public class Card_Game {
     
-    public static void main (String [] args) {
+    public static void main (String [] args) throws IOException {
         ImageIcon i = new ImageIcon ("G:\\cardimage.png");
         Cards card = new Cards ("ace" , "spades" , 14 , i);
         Moves cardmove = new Moves (0 , 0 , 4 , 4 , 400 , 400 ,card);
@@ -44,5 +45,6 @@ public class Card_Game {
         //frame.add (ball);
         //frame.setLayout(null);
         frame.setVisible(true);
+        
     }
 }

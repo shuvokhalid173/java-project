@@ -32,6 +32,7 @@ import javax.swing.WindowConstants;
 import javax.swing.Timer;
 import javax.swing.*;
 import java.lang.NullPointerException;
+
 class object_card {
     String name , suit; 
     int value;
@@ -83,20 +84,44 @@ public class OneCard {
             JLabel label2 = new JLabel ();
             JLabel label3 = new JLabel (); 
             JLabel label4 = new JLabel ();
+            JLabel label5 = new JLabel (); 
+            JLabel label6 = new JLabel (); 
+            JLabel label7 = new JLabel ();
+            
             window.setSize(400 , 600);
+            try {
+                window.setContentPane(new JLabel (new ImageIcon (ImageIO.read (new File ("window_background.png")))));
+            } catch (IOException e) {
+                System.out.println ("image is not exist .. "); 
+            }
             
-            button.setBounds(150 , 250 , 70 , 40);
-            
+            button.setBounds(150 , 450 , 70 , 40);
+            button.setIcon(new ImageIcon (ImageIO.read(new File ("deal.png"))));
             label1.setBounds(50 , 215 , 100 , 100);
             label2.setBounds(265 , 215 , 100 , 100);
-            label3.setBounds(50 , 315 , 100 , 100);
-            label4.setBounds(265 , 315 , 100 , 100);
+            label3.setBounds(50 , 315 , 100 , 40);
+            label4.setBounds(265 , 315 , 100 , 40);
+            label5.setBounds(50 , 355 , 100 , 40); 
+            label6.setBounds(265 , 355 , 100 , 40);
+            label7.setBounds(150 , 50 , 100 , 40);
+            label3.setForeground(Color.red);
+            label4.setForeground(Color.red);
+            label5.setForeground(Color.red);
+            label6.setForeground(Color.red);
+            label7.setForeground(Color.green);
+            //label7.setFont(null);
+            //label7.setText("Result : Pending ...");
+            //label5.setText("Your point : 0");
+            //label6.setText("Your point : 0");
             window.add(button);
+           
             Integer [] arr = new Integer[] {1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 , 11 , 12 , 13};
             try{
+                
                 button.addActionListener(new ActionListener () {
+                    int counter = 0 , oneget = 0 , twoget = 0;
                     public void actionPerformed (ActionEvent e) {
-
+                        System.out.println ("deal no. " + counter);
                         Collections.shuffle(Arrays.asList (arr));
                         
                         int findex = arr[8];
@@ -107,11 +132,46 @@ public class OneCard {
                         label2.setIcon(new ImageIcon (two.bufferedimage));
                         label3.setText(one.name + " of " + one.suit);
                         label4.setText(two.name + " of " + two.suit);
+                        
+                        if (counter > 0) {
+                           // String onegett , twogett;
+                            if (one.value > two.value) {
+                                oneget++;
+                               // onegett = String.valueOf(oneget);
+                                
+                            }
+                            else {
+                                twoget++;
+                                //twogett = String.valueOf(twoget);
+                                
+                            }
+                            label5.setText("Your point : " + String.valueOf(oneget));
+                            label6.setText("Enemy's point : " + String.valueOf(twoget));
+                        }
                         window.add(label1); 
                         window.add(label2); 
                         window.add(label3); 
                         window.add(label4);
-
+                        window.add(label5); 
+                        window.add(label6);
+                        label7.setText("   ");
+                        counter++; 
+                        if (counter == 10) {
+                            //String ss;
+                            if (oneget > twoget) {
+                                label7.setText("Result : You won");
+                            }
+                            else if (oneget < twoget) {
+                                label7.setText("Result : Enemy won");
+                            }
+                            else {
+                                label7.setText("Result : Tie");
+                            }
+                            oneget = 0;
+                            twoget = 0;
+                            counter = 1;
+                        }
+                        window.add(label7);
                     }
                 });
             } catch(NullPointerException e) {
