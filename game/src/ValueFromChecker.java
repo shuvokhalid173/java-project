@@ -115,8 +115,8 @@ public class ValueFromChecker {
         srr[1] = second_3_card.second_card.value;
         srr[2] = second_3_card.third_card.value;
         
-        Arrays.sort(frr , 0 , 2);
-        Arrays.sort(srr , 0 , 2);
+        Arrays.sort(frr , 0 , 3);
+        Arrays.sort(srr , 0 , 3);
         
         if (frr[2] > srr[2]) {
             return 1; 

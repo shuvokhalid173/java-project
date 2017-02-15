@@ -1,4 +1,4 @@
-
+/**In the name of ALLAH **/
 import java.awt.datatransfer.Transferable;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

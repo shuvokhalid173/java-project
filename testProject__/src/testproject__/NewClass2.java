@@ -1,19 +1,16 @@
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.*;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
 
 public class NewClass2 {
-    public static void main (String [] args ) {
-        Scanner cin = new Scanner (System.in); 
-        int array [] = new int [123]; 
-        int n = cin.nextInt();
-        for (int i = 0 ;  i < n; i++) {
-            int x = cin.nextInt(); 
-            array[i] = x;
-        } 
-        Arrays.sort(array , 0 , n);
-        for (int i = 0; i < n; i++) {
-            System.out.print(array[i] + " ");
-        }
-        System.out.println();
+    public static void main (String [] args ) throws FileNotFoundException, IOException {
+        InputStream in = new FileInputStream (""); 
+        AudioStream a = new AudioStream (in); 
+        AudioPlayer.player.start(a);
     }
 }

@@ -22,8 +22,8 @@ public class testClass {
         object_card card12 = new object_card ("Queen" , "spades" , 12 , ImageIO.read(new File ("queen.png")));
         object_card card13 = new object_card ("King" , "spades" , 13 , ImageIO.read(new File ("king.png")));
         object_card card14 = new object_card ("Ace" , "spades" , 14 , ImageIO.read(new File ("ace.png")));
-        ThreeCard first = new ThreeCard (card6 , card7 , card5); 
-        ThreeCard second = new ThreeCard (card9 , card11 , card2); 
+        ThreeCard first = new ThreeCard (card4 , card9 , card8); 
+        ThreeCard second = new ThreeCard (card14 , card7 , card5); 
         ThreeCardChecker fc = new ThreeCardChecker (first);
         ThreeCardChecker sc = new ThreeCardChecker (second); 
         ValueFromChecker ac = new ValueFromChecker (first , second); 

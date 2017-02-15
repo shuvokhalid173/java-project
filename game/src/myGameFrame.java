@@ -1,4 +1,6 @@
-
+/*
+    In the name ALLAH
+*/
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -10,6 +12,7 @@ import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
+import javax.swing.JLabel;
 import javax.swing.TransferHandler;
 
 /*
@@ -30,7 +33,7 @@ public class myGameFrame extends javax.swing.JFrame {
     ThreeCard [] array = new ThreeCard[5]; 
        
     private int counter = 0;
-     ThreeCard threeCard1 , threeCard2 , threeCard3;
+     ThreeCard threeCard1 , threeCard2 , threeCard3 , threeCard4;
     myTransferHandler mytransporthandler; 
     object_card card2 , card3 , card4 , card5 , card6 , card7 , card8 , card9 , card10 , card11 , card12 , card13 , card14;
     object_card [] carrd = new object_card [33];
@@ -38,19 +41,19 @@ public class myGameFrame extends javax.swing.JFrame {
         initComponents();
        
         try {
-            card2 = new object_card ("2" , "spades" , 2 , ImageIO.read(new File ("2.png")));
-            card3 = new object_card ("3" , "spades" , 3 , ImageIO.read(new File ("3.png")));
-            card4 = new object_card ("4" , "spades" , 4 , ImageIO.read(new File ("4.png")));
-            card5 = new object_card ("5" , "spades" , 5 , ImageIO.read(new File ("5.png")));
-            card6 = new object_card ("6" , "spades" , 6 , ImageIO.read(new File ("6.png")));
-            card7 = new object_card ("7" , "spades" , 7 , ImageIO.read(new File ("7.png")));
-            card8 = new object_card ("8" , "spades" , 8 , ImageIO.read(new File ("8.png")));
-            card9 = new object_card ("9" , "spades" , 9 , ImageIO.read(new File ("9.png")));
-            card10 = new object_card ("10" , "spades" , 10 , ImageIO.read(new File ("10.png")));
-            card11 = new object_card ("Jack" , "spades" , 11 , ImageIO.read(new File ("jack.png")));
-            card12 = new object_card ("Queen" , "spades" , 12 , ImageIO.read(new File ("queen.png")));
-            card13 = new object_card ("King" , "spades" , 13 , ImageIO.read(new File ("king.png")));
-            card14 = new object_card ("Ace" , "spades" , 14 , ImageIO.read(new File ("ace.png")));
+            card2 = new object_card ("2" , "spades" , 2 , 5 , ImageIO.read(new File ("2.png")));
+            card3 = new object_card ("3" , "spades" , 3 , 5 , ImageIO.read(new File ("3.png")));
+            card4 = new object_card ("4" , "spades" , 4 , 5 , ImageIO.read(new File ("4.png")));
+            card5 = new object_card ("5" , "spades" , 5 , 5 , ImageIO.read(new File ("5.png")));
+            card6 = new object_card ("6" , "spades" , 6 , 5 , ImageIO.read(new File ("6.png")));
+            card7 = new object_card ("7" , "spades" , 7 , 5 , ImageIO.read(new File ("7.png")));
+            card8 = new object_card ("8" , "spades" , 8 , 5 , ImageIO.read(new File ("8.png")));
+            card9 = new object_card ("9" , "spades" , 9 , 5 , ImageIO.read(new File ("9.png")));
+            card10 = new object_card ("10" , "spades" , 10 , 10 , ImageIO.read(new File ("10.png")));
+            card11 = new object_card ("Jack" , "spades" , 11 , 10 , ImageIO.read(new File ("jack.png")));
+            card12 = new object_card ("Queen" , "spades" , 12 , 10 , ImageIO.read(new File ("queen.png")));
+            card13 = new object_card ("King" , "spades" , 13 , 10 , ImageIO.read(new File ("king.png")));
+            card14 = new object_card ("Ace" , "spades" , 14 , 10 , ImageIO.read(new File ("ace.png")));
         } catch (IOException e) {}
         
         carrd[0] = card2;
@@ -66,7 +69,7 @@ public class myGameFrame extends javax.swing.JFrame {
         carrd[10] = card12;
         carrd[11] = card13;
         carrd[12] = card14;
-        Integer [] arr = new Integer[] {1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 , 11 , 12 , 13};
+        //Integer [] arr = new Integer[] {1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 , 11 , 12 , 13};
         mytransporthandler = new myTransferHandler ("icon"); 
         
     }
@@ -86,15 +89,15 @@ public class myGameFrame extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        a = new javax.swing.JLabel();
+        f = new javax.swing.JLabel();
+        c = new javax.swing.JLabel();
+        d = new javax.swing.JLabel();
+        e = new javax.swing.JLabel();
+        g = new javax.swing.JLabel();
+        h = new javax.swing.JLabel();
+        i = new javax.swing.JLabel();
+        b = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         MakerLabel1 = new javax.swing.JLabel();
         MakerLabel2 = new javax.swing.JLabel();
@@ -109,10 +112,67 @@ public class myGameFrame extends javax.swing.JFrame {
         myFirstThreeCardLabelNo2 = new javax.swing.JLabel();
         myFirstThreeCardLabelNo1 = new javax.swing.JLabel();
         myFirstThreeCardLabelNo3 = new javax.swing.JLabel();
-        computerFirstThreeCardNo3 = new javax.swing.JLabel();
         computerFirstThreeCardLabelNo1 = new javax.swing.JLabel();
         computerFirstThreeCardLabelNo2 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        computerFirstThreeCardNo4 = new javax.swing.JLabel();
+        em = new javax.swing.JLabel();
+        ef = new javax.swing.JLabel();
+        ek = new javax.swing.JLabel();
+        ej = new javax.swing.JLabel();
+        eh = new javax.swing.JLabel();
+        ei = new javax.swing.JLabel();
+        eg = new javax.swing.JLabel();
+        ed = new javax.swing.JLabel();
+        ee = new javax.swing.JLabel();
+        Nc = new javax.swing.JLabel();
+        Nd = new javax.swing.JLabel();
+        Ne = new javax.swing.JLabel();
+        Nf = new javax.swing.JLabel();
+        Nh = new javax.swing.JLabel();
+        Ng = new javax.swing.JLabel();
+        Ni = new javax.swing.JLabel();
+        NL = new javax.swing.JLabel();
+        Nj = new javax.swing.JLabel();
+        k = new javax.swing.JLabel();
+        J = new javax.swing.JLabel();
+        L = new javax.swing.JLabel();
+        testlud = new javax.swing.JLabel();
+        MakerLabel12 = new javax.swing.JLabel();
+        MakerLabel11 = new javax.swing.JLabel();
+        MakerLabel10 = new javax.swing.JLabel();
+        m = new javax.swing.JLabel();
+        el = new javax.swing.JLabel();
+        testllr = new javax.swing.JLabel();
+        eb = new javax.swing.JLabel();
+        ec = new javax.swing.JLabel();
+        wn = new javax.swing.JLabel();
+        wm = new javax.swing.JLabel();
+        wk = new javax.swing.JLabel();
+        wj = new javax.swing.JLabel();
+        wh = new javax.swing.JLabel();
+        wd = new javax.swing.JLabel();
+        wc = new javax.swing.JLabel();
+        we = new javax.swing.JLabel();
+        wf = new javax.swing.JLabel();
+        wL = new javax.swing.JLabel();
+        wb = new javax.swing.JLabel();
+        wa = new javax.swing.JLabel();
+        wi = new javax.swing.JLabel();
+        Na = new javax.swing.JLabel();
+        Nb = new javax.swing.JLabel();
+        Nn = new javax.swing.JLabel();
+        Nm = new javax.swing.JLabel();
+        computerFirstThreeCardLabelNo3 = new javax.swing.JLabel();
+        computerFirstThreeCardLabelNo4 = new javax.swing.JLabel();
+        computerFirstThreeCardNo5 = new javax.swing.JLabel();
+        computerFirstThreeCardLabelNo5 = new javax.swing.JLabel();
+        computerFirstThreeCardLabelNo6 = new javax.swing.JLabel();
+        computerFirstThreeCardNo6 = new javax.swing.JLabel();
+        MakerLabel13 = new javax.swing.JLabel();
+        ea = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
 
         jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\ss\\Desktop\\Capture.PNG")); // NOI18N
         jLabel10.setText("jLabel1");
@@ -163,78 +223,97 @@ public class myGameFrame extends javax.swing.JFrame {
         });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        jLabel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        a.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        a.setText("jLabel1");
+        a.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jLabel1MouseDragged(evt);
+                aMouseDragged(evt);
             }
         });
+        getContentPane().add(a);
+        a.setBounds(160, 430, 63, 86);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
-        jLabel2.setText("jLabel1");
-        jLabel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        f.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        f.setText("jLabel1");
+        f.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jLabel2MouseDragged(evt);
+                fMouseDragged(evt);
             }
         });
+        getContentPane().add(f);
+        f.setBounds(510, 430, 63, 86);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
-        jLabel3.setText("jLabel1");
-        jLabel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        c.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        c.setText("jLabel1");
+        c.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jLabel3MouseDragged(evt);
+                cMouseDragged(evt);
             }
         });
+        getContentPane().add(c);
+        c.setBounds(300, 430, 63, 86);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
-        jLabel4.setText("jLabel1");
-        jLabel4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        d.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        d.setText("jLabel1");
+        d.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jLabel4MouseDragged(evt);
+                dMouseDragged(evt);
             }
         });
+        getContentPane().add(d);
+        d.setBounds(370, 430, 63, 86);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
-        jLabel5.setText("jLabel1");
-        jLabel5.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        e.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        e.setText("jLabel1");
+        e.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jLabel5MouseDragged(evt);
+                eMouseDragged(evt);
             }
         });
+        getContentPane().add(e);
+        e.setBounds(440, 430, 63, 86);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
-        jLabel6.setText("jLabel1");
-        jLabel6.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        g.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        g.setText("jLabel1");
+        g.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jLabel6MouseDragged(evt);
+                gMouseDragged(evt);
             }
         });
+        getContentPane().add(g);
+        g.setBounds(580, 430, 63, 86);
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
-        jLabel7.setText("jLabel1");
-        jLabel7.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        h.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        h.setText("jLabel1");
+        h.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jLabel7MouseDragged(evt);
+                hMouseDragged(evt);
             }
         });
+        getContentPane().add(h);
+        h.setBounds(650, 430, 63, 86);
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
-        jLabel8.setText("jLabel1");
-        jLabel8.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        i.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        i.setText("jLabel1");
+        i.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jLabel8MouseDragged(evt);
+                iMouseDragged(evt);
             }
         });
+        getContentPane().add(i);
+        i.setBounds(720, 430, 63, 86);
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
-        jLabel9.setText("jLabel1");
-        jLabel9.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        b.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        b.setText("jLabel1");
+        b.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jLabel9MouseDragged(evt);
+                bMouseDragged(evt);
             }
         });
+        getContentPane().add(b);
+        b.setBounds(230, 430, 63, 86);
 
         jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ss\\Desktop\\deal.png")); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -242,6 +321,8 @@ public class myGameFrame extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(540, 610, 100, 41);
 
         MakerLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
         MakerLabel1.setText("jLabel1");
@@ -250,6 +331,8 @@ public class myGameFrame extends javax.swing.JFrame {
                 MakerLabel1MouseDragged(evt);
             }
         });
+        getContentPane().add(MakerLabel1);
+        MakerLabel1.setBounds(120, 330, 63, 86);
 
         MakerLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
         MakerLabel2.setText("jLabel1");
@@ -258,6 +341,8 @@ public class myGameFrame extends javax.swing.JFrame {
                 MakerLabel2MouseDragged(evt);
             }
         });
+        getContentPane().add(MakerLabel2);
+        MakerLabel2.setBounds(190, 330, 63, 86);
 
         MakerLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
         MakerLabel3.setText("jLabel1");
@@ -266,6 +351,8 @@ public class myGameFrame extends javax.swing.JFrame {
                 MakerLabel3MouseDragged(evt);
             }
         });
+        getContentPane().add(MakerLabel3);
+        MakerLabel3.setBounds(260, 330, 63, 86);
 
         MakerLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
         MakerLabel4.setText("jLabel1");
@@ -274,6 +361,8 @@ public class myGameFrame extends javax.swing.JFrame {
                 MakerLabel4MouseDragged(evt);
             }
         });
+        getContentPane().add(MakerLabel4);
+        MakerLabel4.setBounds(350, 330, 63, 86);
 
         MakerLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
         MakerLabel5.setText("jLabel1");
@@ -282,6 +371,8 @@ public class myGameFrame extends javax.swing.JFrame {
                 MakerLabel5MouseDragged(evt);
             }
         });
+        getContentPane().add(MakerLabel5);
+        MakerLabel5.setBounds(420, 330, 63, 86);
 
         MakerLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
         MakerLabel6.setText("jLabel1");
@@ -290,6 +381,8 @@ public class myGameFrame extends javax.swing.JFrame {
                 MakerLabel6MouseDragged(evt);
             }
         });
+        getContentPane().add(MakerLabel6);
+        MakerLabel6.setBounds(490, 330, 63, 86);
 
         MakerLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
         MakerLabel7.setText("jLabel1");
@@ -298,6 +391,8 @@ public class myGameFrame extends javax.swing.JFrame {
                 MakerLabel7MouseDragged(evt);
             }
         });
+        getContentPane().add(MakerLabel7);
+        MakerLabel7.setBounds(580, 330, 63, 86);
 
         MakerLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
         MakerLabel8.setText("jLabel1");
@@ -306,6 +401,8 @@ public class myGameFrame extends javax.swing.JFrame {
                 MakerLabel8MouseDragged(evt);
             }
         });
+        getContentPane().add(MakerLabel8);
+        MakerLabel8.setBounds(650, 330, 63, 86);
 
         MakerLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
         MakerLabel9.setText("jLabel1");
@@ -314,6 +411,8 @@ public class myGameFrame extends javax.swing.JFrame {
                 MakerLabel9MouseDragged(evt);
             }
         });
+        getContentPane().add(MakerLabel9);
+        MakerLabel9.setBounds(720, 330, 63, 86);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 51, 153));
@@ -328,206 +427,428 @@ public class myGameFrame extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(430, 610, 94, 41);
 
         myFirstThreeCardLabelNo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(myFirstThreeCardLabelNo2);
+        myFirstThreeCardLabelNo2.setBounds(420, 160, 63, 94);
 
         myFirstThreeCardLabelNo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(myFirstThreeCardLabelNo1);
+        myFirstThreeCardLabelNo1.setBounds(360, 160, 63, 94);
 
         myFirstThreeCardLabelNo3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
         myFirstThreeCardLabelNo3.setText("jLabel13");
-
-        computerFirstThreeCardNo3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(myFirstThreeCardLabelNo3);
+        myFirstThreeCardLabelNo3.setBounds(480, 160, 63, 94);
 
         computerFirstThreeCardLabelNo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(computerFirstThreeCardLabelNo1);
+        computerFirstThreeCardLabelNo1.setBounds(700, 160, 63, 94);
 
         computerFirstThreeCardLabelNo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(computerFirstThreeCardLabelNo2);
+        computerFirstThreeCardLabelNo2.setBounds(760, 160, 63, 94);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(102, 204, 0));
-        jButton3.setText("Deal");
+        jButton3.setText("Chal");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(660, 610, 95, 41);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(190, 190, 190)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(myFirstThreeCardLabelNo1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(myFirstThreeCardLabelNo2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(4, 4, 4))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(myFirstThreeCardLabelNo3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(MakerLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(MakerLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(MakerLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(43, 43, 43)
-                                .addComponent(MakerLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(MakerLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(MakerLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40)
-                                .addComponent(MakerLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(MakerLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(computerFirstThreeCardLabelNo1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(computerFirstThreeCardLabelNo2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(computerFirstThreeCardNo3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(MakerLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(31, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(106, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(myFirstThreeCardLabelNo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(myFirstThreeCardLabelNo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(myFirstThreeCardLabelNo3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(computerFirstThreeCardLabelNo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(computerFirstThreeCardNo3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(computerFirstThreeCardLabelNo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(MakerLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MakerLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MakerLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MakerLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MakerLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MakerLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MakerLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MakerLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MakerLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
+        jButton4.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(0, 0, 255));
+        jButton4.setText("Deal");
+        getContentPane().add(jButton4);
+        jButton4.setBounds(770, 610, 102, 41);
+
+        computerFirstThreeCardNo4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(computerFirstThreeCardNo4);
+        computerFirstThreeCardNo4.setBounds(820, 160, 63, 94);
+
+        em.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lremptycard.PNG"))); // NOI18N
+        em.setText("jLabel13");
+        getContentPane().add(em);
+        em.setBounds(1140, 570, 86, 43);
+
+        ef.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lremptycard.PNG"))); // NOI18N
+        ef.setText("jLabel13");
+        getContentPane().add(ef);
+        ef.setBounds(1140, 290, 86, 43);
+
+        ek.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lremptycard.PNG"))); // NOI18N
+        ek.setText("jLabel13");
+        getContentPane().add(ek);
+        ek.setBounds(1140, 490, 86, 43);
+
+        ej.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lremptycard.PNG"))); // NOI18N
+        ej.setText("jLabel13");
+        getContentPane().add(ej);
+        ej.setBounds(1140, 450, 86, 43);
+
+        eh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lremptycard.PNG"))); // NOI18N
+        eh.setText("jLabel13");
+        getContentPane().add(eh);
+        eh.setBounds(1140, 370, 86, 43);
+
+        ei.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lremptycard.PNG"))); // NOI18N
+        ei.setText("jLabel13");
+        getContentPane().add(ei);
+        ei.setBounds(1140, 410, 86, 43);
+
+        eg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lremptycard.PNG"))); // NOI18N
+        eg.setText("jLabel13");
+        getContentPane().add(eg);
+        eg.setBounds(1140, 330, 86, 43);
+
+        ed.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lremptycard.PNG"))); // NOI18N
+        ed.setText("jLabel13");
+        getContentPane().add(ed);
+        ed.setBounds(1140, 210, 86, 43);
+
+        ee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lremptycard.PNG"))); // NOI18N
+        ee.setText("jLabel13");
+        getContentPane().add(ee);
+        ee.setBounds(1140, 250, 86, 43);
+
+        Nc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(Nc);
+        Nc.setBounds(350, 0, 63, 94);
+
+        Nd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(Nd);
+        Nd.setBounds(410, 0, 63, 94);
+
+        Ne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        Ne.setText("jLabel13");
+        getContentPane().add(Ne);
+        Ne.setBounds(470, 0, 63, 94);
+
+        Nf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(Nf);
+        Nf.setBounds(530, 0, 63, 94);
+
+        Nh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        Nh.setText("jLabel13");
+        getContentPane().add(Nh);
+        Nh.setBounds(650, 0, 63, 94);
+
+        Ng.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(Ng);
+        Ng.setBounds(590, 0, 63, 94);
+
+        Ni.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(Ni);
+        Ni.setBounds(710, 0, 63, 94);
+
+        NL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        NL.setText("jLabel13");
+        getContentPane().add(NL);
+        NL.setBounds(830, 0, 63, 94);
+
+        Nj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(Nj);
+        Nj.setBounds(770, 0, 63, 94);
+
+        k.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        k.setText("jLabel1");
+        k.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                kMouseDragged(evt);
+            }
+        });
+        getContentPane().add(k);
+        k.setBounds(860, 430, 63, 86);
+
+        J.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        J.setText("jLabel1");
+        J.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                JMouseDragged(evt);
+            }
+        });
+        getContentPane().add(J);
+        J.setBounds(790, 430, 63, 86);
+
+        L.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        L.setText("jLabel1");
+        L.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                LMouseDragged(evt);
+            }
+        });
+        getContentPane().add(L);
+        L.setBounds(930, 430, 63, 86);
+
+        testlud.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                testludMouseDragged(evt);
+            }
+        });
+        getContentPane().add(testlud);
+        testlud.setBounds(560, 560, 63, 86);
+
+        MakerLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        MakerLabel12.setText("jLabel1");
+        MakerLabel12.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                MakerLabel12MouseDragged(evt);
+            }
+        });
+        getContentPane().add(MakerLabel12);
+        MakerLabel12.setBounds(960, 330, 63, 86);
+
+        MakerLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        MakerLabel11.setText("jLabel1");
+        MakerLabel11.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                MakerLabel11MouseDragged(evt);
+            }
+        });
+        getContentPane().add(MakerLabel11);
+        MakerLabel11.setBounds(890, 330, 63, 86);
+
+        MakerLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        MakerLabel10.setText("jLabel1");
+        MakerLabel10.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                MakerLabel10MouseDragged(evt);
+            }
+        });
+        getContentPane().add(MakerLabel10);
+        MakerLabel10.setBounds(820, 330, 63, 86);
+
+        m.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        m.setText("jLabel1");
+        m.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                mMouseDragged(evt);
+            }
+        });
+        getContentPane().add(m);
+        m.setBounds(1000, 430, 63, 86);
+
+        el.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lremptycard.PNG"))); // NOI18N
+        el.setText("jLabel13");
+        getContentPane().add(el);
+        el.setBounds(1140, 530, 86, 43);
+        getContentPane().add(testllr);
+        testllr.setBounds(550, 580, 86, 43);
+
+        eb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lremptycard.PNG"))); // NOI18N
+        eb.setText("jLabel13");
+        getContentPane().add(eb);
+        eb.setBounds(1140, 130, 86, 43);
+
+        ec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lremptycard.PNG"))); // NOI18N
+        ec.setText("jLabel13");
+        getContentPane().add(ec);
+        ec.setBounds(1140, 170, 86, 43);
+
+        wn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lremptycard.PNG"))); // NOI18N
+        wn.setText("jLabel13");
+        getContentPane().add(wn);
+        wn.setBounds(10, 570, 86, 43);
+
+        wm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lremptycard.PNG"))); // NOI18N
+        wm.setText("jLabel13");
+        getContentPane().add(wm);
+        wm.setBounds(10, 530, 86, 43);
+
+        wk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lremptycard.PNG"))); // NOI18N
+        wk.setText("jLabel13");
+        getContentPane().add(wk);
+        wk.setBounds(10, 450, 86, 43);
+
+        wj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lremptycard.PNG"))); // NOI18N
+        wj.setText("jLabel13");
+        getContentPane().add(wj);
+        wj.setBounds(10, 410, 86, 43);
+
+        wh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lremptycard.PNG"))); // NOI18N
+        wh.setText("jLabel13");
+        getContentPane().add(wh);
+        wh.setBounds(10, 330, 86, 43);
+
+        wd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lremptycard.PNG"))); // NOI18N
+        wd.setText("jLabel13");
+        getContentPane().add(wd);
+        wd.setBounds(10, 210, 86, 43);
+
+        wc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lremptycard.PNG"))); // NOI18N
+        wc.setText("jLabel13");
+        getContentPane().add(wc);
+        wc.setBounds(10, 170, 86, 43);
+
+        we.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lremptycard.PNG"))); // NOI18N
+        we.setText("jLabel13");
+        getContentPane().add(we);
+        we.setBounds(10, 250, 86, 43);
+
+        wf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lremptycard.PNG"))); // NOI18N
+        wf.setText("jLabel13");
+        getContentPane().add(wf);
+        wf.setBounds(10, 290, 86, 43);
+
+        wL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lremptycard.PNG"))); // NOI18N
+        wL.setText("jLabel13");
+        getContentPane().add(wL);
+        wL.setBounds(10, 490, 86, 43);
+
+        wb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lremptycard.PNG"))); // NOI18N
+        wb.setText("jLabel13");
+        getContentPane().add(wb);
+        wb.setBounds(10, 130, 86, 43);
+
+        wa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lremptycard.PNG"))); // NOI18N
+        wa.setText("jLabel13");
+        getContentPane().add(wa);
+        wa.setBounds(10, 90, 86, 43);
+
+        wi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lremptycard.PNG"))); // NOI18N
+        wi.setText("jLabel13");
+        getContentPane().add(wi);
+        wi.setBounds(10, 370, 86, 43);
+
+        Na.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(Na);
+        Na.setBounds(230, 0, 63, 94);
+
+        Nb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(Nb);
+        Nb.setBounds(290, 0, 63, 94);
+
+        Nn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        Nn.setText("jLabel13");
+        getContentPane().add(Nn);
+        Nn.setBounds(950, 0, 63, 94);
+
+        Nm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(Nm);
+        Nm.setBounds(890, 0, 63, 94);
+
+        computerFirstThreeCardLabelNo3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(computerFirstThreeCardLabelNo3);
+        computerFirstThreeCardLabelNo3.setBounds(530, 100, 63, 94);
+
+        computerFirstThreeCardLabelNo4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(computerFirstThreeCardLabelNo4);
+        computerFirstThreeCardLabelNo4.setBounds(590, 100, 63, 94);
+
+        computerFirstThreeCardNo5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(computerFirstThreeCardNo5);
+        computerFirstThreeCardNo5.setBounds(650, 100, 63, 94);
+
+        computerFirstThreeCardLabelNo5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(computerFirstThreeCardLabelNo5);
+        computerFirstThreeCardLabelNo5.setBounds(530, 220, 63, 94);
+
+        computerFirstThreeCardLabelNo6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(computerFirstThreeCardLabelNo6);
+        computerFirstThreeCardLabelNo6.setBounds(590, 220, 63, 94);
+
+        computerFirstThreeCardNo6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(computerFirstThreeCardNo6);
+        computerFirstThreeCardNo6.setBounds(650, 220, 63, 94);
+
+        MakerLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        MakerLabel13.setText("jLabel1");
+        MakerLabel13.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                MakerLabel13MouseDragged(evt);
+            }
+        });
+        getContentPane().add(MakerLabel13);
+        MakerLabel13.setBounds(1030, 330, 63, 86);
+
+        ea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lremptycard.PNG"))); // NOI18N
+        ea.setText("jLabel13");
+        getContentPane().add(ea);
+        ea.setBounds(1140, 90, 86, 43);
+
+        jButton5.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(0, 102, 102));
+        jButton5.setText("Show");
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5);
+        jButton5.setBounds(323, 610, 90, 40);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseDragged
+    private void aMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aMouseDragged
         JComponent jcomp = (JComponent) evt.getSource(); 
         TransferHandler thand = jcomp.getTransferHandler(); 
         thand.exportAsDrag(jcomp, evt, TransferHandler.MOVE);
                     
-    }//GEN-LAST:event_jLabel1MouseDragged
+    }//GEN-LAST:event_aMouseDragged
 
-    private void jLabel9MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseDragged
+    private void bMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseDragged
         JComponent jcomp = (JComponent) evt.getSource(); 
         TransferHandler thand = jcomp.getTransferHandler(); 
         thand.exportAsDrag(jcomp, evt, TransferHandler.MOVE);
         
-    }//GEN-LAST:event_jLabel9MouseDragged
+    }//GEN-LAST:event_bMouseDragged
 
-    private void jLabel3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseDragged
+    private void cMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cMouseDragged
         JComponent jcomp = (JComponent) evt.getSource(); 
         TransferHandler thand = jcomp.getTransferHandler(); 
         thand.exportAsDrag(jcomp, evt, TransferHandler.MOVE);
         
-    }//GEN-LAST:event_jLabel3MouseDragged
+    }//GEN-LAST:event_cMouseDragged
 
-    private void jLabel4MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseDragged
+    private void dMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dMouseDragged
         JComponent jcomp = (JComponent) evt.getSource(); 
         TransferHandler thand = jcomp.getTransferHandler(); 
         thand.exportAsDrag(jcomp, evt, TransferHandler.MOVE);
         
-    }//GEN-LAST:event_jLabel4MouseDragged
+    }//GEN-LAST:event_dMouseDragged
 
-    private void jLabel5MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseDragged
+    private void eMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eMouseDragged
         JComponent jcomp = (JComponent) evt.getSource(); 
         TransferHandler thand = jcomp.getTransferHandler(); 
         thand.exportAsDrag(jcomp, evt, TransferHandler.MOVE);
         
-    }//GEN-LAST:event_jLabel5MouseDragged
+    }//GEN-LAST:event_eMouseDragged
 
-    private void jLabel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseDragged
+    private void fMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fMouseDragged
         JComponent jcomp = (JComponent) evt.getSource(); 
         TransferHandler thand = jcomp.getTransferHandler(); 
         thand.exportAsDrag(jcomp, evt, TransferHandler.MOVE);
         
-    }//GEN-LAST:event_jLabel2MouseDragged
+    }//GEN-LAST:event_fMouseDragged
 
-    private void jLabel6MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseDragged
+    private void gMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gMouseDragged
         JComponent jcomp = (JComponent) evt.getSource(); 
         TransferHandler thand = jcomp.getTransferHandler(); 
         thand.exportAsDrag(jcomp, evt, TransferHandler.MOVE);
         
-    }//GEN-LAST:event_jLabel6MouseDragged
+    }//GEN-LAST:event_gMouseDragged
 
-    private void jLabel7MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseDragged
+    private void hMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hMouseDragged
         JComponent jcomp = (JComponent) evt.getSource(); 
         TransferHandler thand = jcomp.getTransferHandler(); 
         thand.exportAsDrag(jcomp, evt, TransferHandler.MOVE);
         
-    }//GEN-LAST:event_jLabel7MouseDragged
+    }//GEN-LAST:event_hMouseDragged
 
-    private void jLabel8MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseDragged
+    private void iMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iMouseDragged
         JComponent jcomp = (JComponent) evt.getSource(); 
         TransferHandler thand = jcomp.getTransferHandler(); 
         thand.exportAsDrag(jcomp, evt, TransferHandler.MOVE);
         
-    }//GEN-LAST:event_jLabel8MouseDragged
+    }//GEN-LAST:event_iMouseDragged
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         array[0] = null; 
@@ -544,6 +865,11 @@ public class myGameFrame extends javax.swing.JFrame {
             MakerLabel7.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
             MakerLabel8.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
             MakerLabel9.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
+            
+            MakerLabel10.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
+            MakerLabel11.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
+            MakerLabel12.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
+            MakerLabel13.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
             myFirstThreeCardLabelNo1.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
             myFirstThreeCardLabelNo2.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
             myFirstThreeCardLabelNo3.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
@@ -551,16 +877,19 @@ public class myGameFrame extends javax.swing.JFrame {
             Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        jLabel1.setTransferHandler(mytransporthandler);
-        jLabel2.setTransferHandler(mytransporthandler);
-        jLabel3.setTransferHandler(mytransporthandler);
-        jLabel4.setTransferHandler(mytransporthandler);
-        jLabel5.setTransferHandler(mytransporthandler);
-        jLabel6.setTransferHandler(mytransporthandler);
-        jLabel7.setTransferHandler(mytransporthandler);
-        jLabel8.setTransferHandler(mytransporthandler);
-        jLabel9.setTransferHandler(mytransporthandler);
-        
+        a.setTransferHandler(mytransporthandler);
+        f.setTransferHandler(mytransporthandler);
+        c.setTransferHandler(mytransporthandler);
+        d.setTransferHandler(mytransporthandler);
+        e.setTransferHandler(mytransporthandler);
+        g.setTransferHandler(mytransporthandler);
+        h.setTransferHandler(mytransporthandler);
+        i.setTransferHandler(mytransporthandler);
+        b.setTransferHandler(mytransporthandler);
+        J.setTransferHandler(mytransporthandler);
+        k.setTransferHandler(mytransporthandler);
+        L.setTransferHandler(mytransporthandler);
+        m.setTransferHandler(mytransporthandler);
         MakerLabel1.setTransferHandler(mytransporthandler);
         MakerLabel2.setTransferHandler(mytransporthandler);
         MakerLabel3.setTransferHandler(mytransporthandler);
@@ -570,44 +899,275 @@ public class myGameFrame extends javax.swing.JFrame {
         MakerLabel7.setTransferHandler(mytransporthandler);
         MakerLabel8.setTransferHandler(mytransporthandler);
         MakerLabel9.setTransferHandler(mytransporthandler);
+        MakerLabel10.setTransferHandler(mytransporthandler);
+        MakerLabel11.setTransferHandler(mytransporthandler);
+        MakerLabel12.setTransferHandler(mytransporthandler);
+        MakerLabel13.setTransferHandler(mytransporthandler);
         
-        Integer [] arr = new Integer[] {1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 , 11 , 12 , 13};
-        Collections.shuffle(Arrays.asList (arr));
+        Thread thread = new Thread () {
+            private int xud = 560 , yud = 560; 
+            private int xlr = 550 , ylr = 580;
+            
+            public void run () {
+                int fromSouth = 40 , fromEastWest = 50;
+                int fromNort = 33; 
+               for (int j = 0; j < 13; j++) {
+                   for (int i = 1; i < 11; i++) {
+                       try {
+                           testlud.setIcon(new ImageIcon (ImageIO.read (new File ("reverseCard.png"))));
+                       } catch (IOException ex) {
+                           Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+                       }
+                       testlud.setBounds(xud - (fromSouth * i) , yud - (13 * i) , 63 , 86);
+
+                        try {
+                            sleep (15); 
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                         
+                    }
+                    try {
+                        if (j == 0) {
+                            a.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCard.png"))));
+                        }
+                        if (j == 1) {
+                            b.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCard.png"))));
+                        }
+                        if (j == 2) {
+                            c.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCard.png"))));
+                        }
+                        if (j == 3) {
+                            d.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCard.png"))));
+                        }
+                        if (j == 4) {
+                            e.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCard.png"))));
+                        }
+                        if (j == 5) {
+                            f.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCard.png"))));
+                        }
+                        if (j == 6) {
+                            g.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCard.png"))));
+                        }
+                        if (j == 7) {
+                            h.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCard.png"))));
+                        }
+                        if (j == 8) {
+                            i.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCard.png"))));
+                        }
+                        if (j == 9) {
+                            J.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCard.png"))));
+                        }
+                        if (j == 10) {
+                            k.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCard.png"))));
+                        }
+                        if (j == 11) {
+                            L.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCard.png"))));
+                        }
+                        if (j == 12) {
+                            m.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCard.png"))));
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                   fromSouth -= 7;
+                    
+                    for (int i = 1; i < 11; i++) {
+                       try {
+                           testllr.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCardlr.png"))));
+                       } catch (IOException ex) {
+                           Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+                       }
+                        if (j == 0) {
+                            testllr.setBounds(xlr + (59 * i) , ylr - 10 , 86 , 43);
+                        }
+                        else {
+                            testllr.setBounds(xlr + (59 * i) , ylr - ( i * (fromEastWest / 10)) , 86 , 43);
+                        }
+                        try {
+                            sleep (15); 
+                        } catch (Exception e) {
+                            e.printStackTrace (); 
+                        }
+                    }
+                    try {
+                        if (j == 0) {
+                            em.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCardlr.png"))));
+                        }
+                        if (j == 1) {
+                            el.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCardlr.png"))));
+                        }
+                        if (j == 2) {
+                            ek.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCardlr.png"))));
+                        }
+                        if (j == 3) {
+                            ej.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCardlr.png"))));
+                        }
+                        if (j == 4) {
+                            ei.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCardlr.png"))));
+                        }
+                        if (j == 5) {
+                            eh.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCardlr.png"))));
+                        }
+                        if (j == 6) {
+                            eg.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCardlr.png"))));
+                        }
+                        if (j == 7) {
+                            ef.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCardlr.png"))));
+                        }
+                        if (j == 8) {
+                            ee.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCardlr.png"))));
+                        }
+                        if (j == 9) {
+                            ed.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCardlr.png"))));
+                        }
+                        if (j == 10) {
+                            ec.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCardlr.png"))));
+                        }
+                        if (j == 11) {
+                            eb.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCardlr.png"))));
+                        }
+                        if (j == 12) {
+                            ea.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCardlr.png"))));
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    for (int i = 1; i < 11; i++) {
+                        try {
+                           testlud.setIcon(new ImageIcon (ImageIO.read (new File ("reverseCard.png"))));
+                       } catch (IOException ex) {
+                           Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+                       }
+                        testlud.setBounds(xud - (i * fromNort) , yud - (56 * i) , 63 , 86);
+                        try {
+                            sleep (15); 
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    try {
+                        if (j == 0) {
+                            Na.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCard.png"))));
+                        }
+                        if (j == 1) {
+                            Nb.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCard.png"))));
+                        }
+                        if (j == 2) {
+                            Nc.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCard.png"))));
+                        }
+                        if (j == 3) {
+                            Nd.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCard.png"))));
+                        }
+                        if (j == 4) {
+                            Ne.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCard.png"))));
+                        }
+                        if (j == 5) {
+                            Nf.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCard.png"))));
+                        }
+                        if (j == 6) {
+                            Ng.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCard.png"))));
+                        }
+                        if (j == 7) {
+                            Nh.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCard.png"))));
+                        }
+                        if (j == 8) {
+                            Ni.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCard.png"))));
+                        }
+                        if (j == 9) {
+                            Nj.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCard.png"))));
+                        }
+                        if (j == 10) {
+                            NL.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCard.png"))));
+                        }
+                        if (j == 11) {
+                            Nm.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCard.png"))));
+                        }
+                        if (j == 12) {
+                            Nn.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCard.png"))));
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    fromNort -= 6;
+                    
+                    for (int i = 1; i < 11; i++) {
+                        try {
+                           testllr.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCardlr.png"))));
+                       } catch (IOException ex) {
+                           Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+                       }
+                        if (j == 0) {
+                            testllr.setBounds(xlr - (54 * i) , ylr - 10 , 86 , 43);
+                        }
+                        else {
+                            testllr.setBounds(xlr - (54 * i) , ylr - ( i * (fromEastWest / 10)) , 86 , 43);
+                        }
+                        try {
+                            sleep (15); 
+                        } catch (Exception e) {
+                            e.printStackTrace (); 
+                        }
+                    }
+                      try {
+                        if (j == 0) {
+                            wn.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCardlr.png"))));
+                        }
+                        if (j == 1) {
+                            wm.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCardlr.png"))));
+                        }
+                        if (j == 2) {
+                            wL.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCardlr.png"))));
+                        }
+                        if (j == 3) {
+                            wk.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCardlr.png"))));
+                        }
+                        if (j == 4) {
+                            wj.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCardlr.png"))));
+                        }
+                        if (j == 5) {
+                            wi.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCardlr.png"))));
+                        }
+                        if (j == 6) {
+                            wh.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCardlr.png"))));
+                        }
+                        if (j == 7) {
+                            wf.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCardlr.png"))));
+                        }
+                        if (j == 8) {
+                            we.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCardlr.png"))));
+                        }
+                        if (j == 9) {
+                            wd.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCardlr.png"))));
+                        }
+                        if (j == 10) {
+                            wc.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCardlr.png"))));
+                        }
+                        if (j == 11) {
+                            wb.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCardlr.png"))));
+                        }
+                        if (j == 12) {
+                            wa.setIcon(new ImageIcon (ImageIO.read(new File ("reverseCardlr.png"))));
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    if (j > 0) {
+                        fromEastWest += 40;
+                    }
+                    
+                    testlud.setBounds(xud , yud , 63 , 86);
+                    testllr.setBounds(xlr , ylr , 86 , 43);
+               }
+               
+               
+               testlud.setIcon(null);
+               testllr.setIcon(null);
+           } 
+        }; 
+        thread.start();
         
-                    int index_1st = arr[8];
-                    int index_2nd = arr[12];
-                    int index_3rd = arr[2]; 
-
-
-                    int index_4th = arr[1];
-                    int index_5th = arr[3];
-                    int index_6th = arr[6]; 
-
-                    int index_7th = arr[9];
-                    int index_8th = arr[11];
-                    int index_9th = arr[10]; 
-
-                    object_card one = carrd[index_1st - 1]; 
-                    object_card two = carrd[index_2nd - 1];
-                    object_card three = carrd[index_3rd - 1]; 
-
-                    object_card four = carrd[index_4th - 1]; 
-                    object_card five = carrd[index_5th - 1];
-                    object_card six = carrd[index_6th - 1]; 
-
-                    object_card seven = carrd[index_7th - 1]; 
-                    object_card eight = carrd[index_8th - 1];
-                    object_card nine = carrd[index_9th - 1]; 
-
-                    jLabel1.setIcon(new ImageIcon (one.bufferedimage));
-                    jLabel2.setIcon(new ImageIcon (two.bufferedimage));
-                    jLabel3.setIcon(new ImageIcon (three.bufferedimage));
-                    jLabel4.setIcon(new ImageIcon (four.bufferedimage));
-                    jLabel5.setIcon(new ImageIcon (five.bufferedimage));
-                    jLabel6.setIcon(new ImageIcon (six.bufferedimage));
-                    jLabel7.setIcon(new ImageIcon (seven.bufferedimage));
-                    jLabel8.setIcon(new ImageIcon (eight.bufferedimage));
-                    jLabel9.setIcon(new ImageIcon (nine.bufferedimage));
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jLabel10MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseDragged
@@ -699,7 +1259,10 @@ public class myGameFrame extends javax.swing.JFrame {
         MakerLabel7.setTransferHandler(null);
         MakerLabel8.setTransferHandler(null);
         MakerLabel9.setTransferHandler(null);
-        
+        MakerLabel10.setTransferHandler(null);
+        MakerLabel11.setTransferHandler(null); 
+        MakerLabel12.setTransferHandler(null);
+        MakerLabel13.setTransferHandler(null);
         ImageIcon testIcon1 = (ImageIcon) MakerLabel1.getIcon();
         ImageIcon testIcon2 = (ImageIcon) MakerLabel2.getIcon(); 
         ImageIcon testIcon3 = (ImageIcon) MakerLabel3.getIcon();
@@ -709,12 +1272,16 @@ public class myGameFrame extends javax.swing.JFrame {
         ImageIcon testIcon7 = (ImageIcon) MakerLabel7.getIcon();
         ImageIcon testIcon8 = (ImageIcon) MakerLabel8.getIcon(); 
         ImageIcon testIcon9 = (ImageIcon) MakerLabel9.getIcon();
-       
+        ImageIcon testIcon10 = (ImageIcon) MakerLabel10.getIcon(); 
+        ImageIcon testIcon11 = (ImageIcon) MakerLabel11.getIcon();
+        ImageIcon testIcon12 = (ImageIcon) MakerLabel12.getIcon(); 
+        ImageIcon testIcon13 = (ImageIcon) MakerLabel13.getIcon();
+        
         //for the 1st card ///
         object_card ftcf = null , ftcs = null, ftct = null; //firstThreeCardsFirstCard
         object_card stcf = null , stcs = null , stct = null; // secondThreeCardsFirstCard
         object_card ttcf = null, ttcs = null , ttct = null; // thirdThreeCardsFirstCard
-        
+        object_card fftcf = null , fftcs = null, fftct = null; 
         for (int i = 0; i < 13; i++) {
             ImageIcon tt = new ImageIcon (carrd[i].bufferedimage);
             //message.setIcon(tt);
@@ -792,10 +1359,34 @@ public class myGameFrame extends javax.swing.JFrame {
                 break;
             }
         }
-        
+             
+        for (int i = 0; i < 13; i++) {
+            ImageIcon tt = new ImageIcon (carrd[i].bufferedimage); 
+            if (testIcon10.getImage() == tt.getImage()) {
+                fftcf = carrd[i]; 
+                break;
+            }
+        }
+             
+        for (int i = 0; i < 13; i++) {
+            ImageIcon tt = new ImageIcon (carrd[i].bufferedimage); 
+            if (testIcon11.getImage() == tt.getImage()) {
+                fftcs = carrd[i]; 
+                break;
+            }
+        }
+             
+        for (int i = 0; i < 13; i++) {
+            ImageIcon tt = new ImageIcon (carrd[i].bufferedimage); 
+            if (testIcon12.getImage() == tt.getImage()) {
+                fftct = carrd[i]; 
+                break;
+            }
+        }
         threeCard1 = new ThreeCard (ftcf , ftcs , ftct);
         threeCard2 = new ThreeCard (stcf , stcs , stct);
         threeCard3 = new ThreeCard (ttcf , ttcs , ttct);
+        threeCard4 = new ThreeCard (fftcf , fftcs , fftct); 
         System.out.println ("first 3 card .... "); 
         System.out.println (threeCard1.first_card.name + " " + threeCard1.first_card.suit + " " + threeCard1.first_card.value);
         System.out.println (threeCard1.second_card.name + " " + threeCard1.second_card.suit + " " + threeCard1.second_card.value);
@@ -809,10 +1400,12 @@ public class myGameFrame extends javax.swing.JFrame {
         System.out.println (threeCard3.second_card.name + " " + threeCard3.second_card.suit + " " + threeCard3.second_card.value);
         System.out.println (threeCard3.third_card.name + " " + threeCard3.third_card.suit + " " + threeCard3.third_card.value);
         System.out.println (""); 
-        ThreeCard largest = null , larger = null , large = null; 
+        /**
+        ThreeCard largest = null , larger = null , large = null; **/
         array[0] = threeCard1;
         array[1] = threeCard2; 
         array[2] = threeCard3;
+        array[3] = threeCard4; /**
         ThreeCard arr [] = new ThreeCard [3]; 
         ValueFromChecker vc = new ValueFromChecker (array[0] , array[1]);
         ThreeCard ffff = vc.MaxThreeCard(); 
@@ -841,7 +1434,18 @@ public class myGameFrame extends javax.swing.JFrame {
         array[0] = largest; 
         array[1] = larger; 
         array[2] = large;
-        
+        **/
+        /// customize sort of object threeCard array in decending order ///
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 3; j++) {
+                ValueFromChecker temp = new ValueFromChecker (array[j] , array[j + 1]); 
+                ThreeCard tempValue = temp.MaxThreeCard(); 
+                if (tempValue == array[j + 1]) {
+                    array[j + 1] = array[j]; 
+                    array[j] = tempValue;
+                }
+            }
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
@@ -866,8 +1470,129 @@ public class myGameFrame extends javax.swing.JFrame {
             myFirstThreeCardLabelNo2.setIcon(new ImageIcon (array[2].second_card.bufferedimage));
             myFirstThreeCardLabelNo3.setIcon(new ImageIcon (array[2].third_card.bufferedimage));
         }
+        else if (counter == 3) {
+            myFirstThreeCardLabelNo1.setIcon(new ImageIcon (array[3].first_card.bufferedimage));
+            myFirstThreeCardLabelNo2.setIcon(new ImageIcon (array[3].second_card.bufferedimage));
+            myFirstThreeCardLabelNo3.setIcon(new ImageIcon (array[3].third_card.bufferedimage));
+            
+        }
         counter++;
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void kMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kMouseDragged
+        JComponent jcomp = (JComponent) evt.getSource(); 
+        TransferHandler thand = jcomp.getTransferHandler(); 
+        thand.exportAsDrag(jcomp, evt, TransferHandler.MOVE);
+        
+    }//GEN-LAST:event_kMouseDragged
+
+    private void JMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JMouseDragged
+        JComponent jcomp = (JComponent) evt.getSource(); 
+        TransferHandler thand = jcomp.getTransferHandler(); 
+        thand.exportAsDrag(jcomp, evt, TransferHandler.MOVE);
+        
+    }//GEN-LAST:event_JMouseDragged
+
+    private void LMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LMouseDragged
+        JComponent jcomp = (JComponent) evt.getSource(); 
+        TransferHandler thand = jcomp.getTransferHandler(); 
+        thand.exportAsDrag(jcomp, evt, TransferHandler.MOVE);
+        
+    }//GEN-LAST:event_LMouseDragged
+
+    private void testludMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_testludMouseDragged
+        JComponent jcomp = (JComponent) evt.getSource(); 
+        TransferHandler thand = jcomp.getTransferHandler(); 
+        thand.exportAsDrag(jcomp, evt, TransferHandler.MOVE);
+        
+    }//GEN-LAST:event_testludMouseDragged
+
+    private void MakerLabel12MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MakerLabel12MouseDragged
+        JComponent jcomp = (JComponent) evt.getSource(); 
+        TransferHandler thand = jcomp.getTransferHandler(); 
+        thand.exportAsDrag(jcomp, evt, TransferHandler.MOVE);
+        
+    }//GEN-LAST:event_MakerLabel12MouseDragged
+
+    private void MakerLabel11MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MakerLabel11MouseDragged
+        JComponent jcomp = (JComponent) evt.getSource(); 
+        TransferHandler thand = jcomp.getTransferHandler(); 
+        thand.exportAsDrag(jcomp, evt, TransferHandler.MOVE);
+        
+    }//GEN-LAST:event_MakerLabel11MouseDragged
+
+    private void MakerLabel10MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MakerLabel10MouseDragged
+        JComponent jcomp = (JComponent) evt.getSource(); 
+        TransferHandler thand = jcomp.getTransferHandler(); 
+        thand.exportAsDrag(jcomp, evt, TransferHandler.MOVE);
+        
+    }//GEN-LAST:event_MakerLabel10MouseDragged
+
+    private void mMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mMouseDragged
+        JComponent jcomp = (JComponent) evt.getSource(); 
+        TransferHandler thand = jcomp.getTransferHandler(); 
+        thand.exportAsDrag(jcomp, evt, TransferHandler.MOVE);
+        
+    }//GEN-LAST:event_mMouseDragged
+
+    private void MakerLabel13MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MakerLabel13MouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MakerLabel13MouseDragged
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        Integer [] arra = new Integer[] {1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 , 11 , 12 , 13};
+        Collections.shuffle(Arrays.asList (arra));
+        
+                    int index_1st = arra[0];
+                    int index_2nd = arra[1];
+                    int index_3rd = arra[2]; 
+
+
+                    int index_4th = arra[3];
+                    int index_5th = arra[4];
+                    int index_6th = arra[5]; 
+
+                    int index_7th = arra[6];
+                    int index_8th = arra[7];
+                    int index_9th = arra[8]; 
+                    
+                    int index_10th = arra[9]; 
+                    int index_11th = arra[10]; 
+                    int index_12th = arra[11]; 
+                    int index_13th = arra[12]; 
+                    
+                    object_card one = carrd[index_1st - 1]; 
+                    object_card two = carrd[index_2nd - 1];
+                    object_card three = carrd[index_3rd - 1]; 
+
+                    object_card four = carrd[index_4th - 1]; 
+                    object_card five = carrd[index_5th - 1];
+                    object_card six = carrd[index_6th - 1]; 
+
+                    object_card seven = carrd[index_7th - 1]; 
+                    object_card eight = carrd[index_8th - 1];
+                    object_card nine = carrd[index_9th - 1]; 
+                    
+                    object_card ten = carrd[index_10th - 1]; 
+                    object_card eleven = carrd[index_11th - 1]; 
+                    object_card twelve = carrd[index_12th - 1]; 
+                    object_card thirteen = carrd[index_13th - 1]; 
+                    
+                    a.setIcon(new ImageIcon (one.bufferedimage));
+                    b.setIcon(new ImageIcon (two.bufferedimage));
+                    c.setIcon(new ImageIcon (three.bufferedimage));
+                    d.setIcon(new ImageIcon (four.bufferedimage));
+                    e.setIcon(new ImageIcon (five.bufferedimage));
+                    f.setIcon(new ImageIcon (six.bufferedimage));
+                    g.setIcon(new ImageIcon (seven.bufferedimage));
+                    h.setIcon(new ImageIcon (eight.bufferedimage));
+                    i.setIcon(new ImageIcon (nine.bufferedimage));
+                    J.setIcon(new ImageIcon (ten.bufferedimage));
+                    k.setIcon(new ImageIcon (eleven.bufferedimage));
+                    L.setIcon(new ImageIcon (twelve.bufferedimage));
+                    m.setIcon(new ImageIcon (thirteen.bufferedimage));
+                    
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -905,7 +1630,13 @@ public class myGameFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel J;
+    private javax.swing.JLabel L;
     private javax.swing.JLabel MakerLabel1;
+    private javax.swing.JLabel MakerLabel10;
+    private javax.swing.JLabel MakerLabel11;
+    private javax.swing.JLabel MakerLabel12;
+    private javax.swing.JLabel MakerLabel13;
     private javax.swing.JLabel MakerLabel2;
     private javax.swing.JLabel MakerLabel3;
     private javax.swing.JLabel MakerLabel4;
@@ -914,29 +1645,80 @@ public class myGameFrame extends javax.swing.JFrame {
     private javax.swing.JLabel MakerLabel7;
     private javax.swing.JLabel MakerLabel8;
     private javax.swing.JLabel MakerLabel9;
+    private javax.swing.JLabel NL;
+    private javax.swing.JLabel Na;
+    private javax.swing.JLabel Nb;
+    private javax.swing.JLabel Nc;
+    private javax.swing.JLabel Nd;
+    private javax.swing.JLabel Ne;
+    private javax.swing.JLabel Nf;
+    private javax.swing.JLabel Ng;
+    private javax.swing.JLabel Nh;
+    private javax.swing.JLabel Ni;
+    private javax.swing.JLabel Nj;
+    private javax.swing.JLabel Nm;
+    private javax.swing.JLabel Nn;
+    private javax.swing.JLabel a;
+    private javax.swing.JLabel b;
+    private javax.swing.JLabel c;
     private javax.swing.JLabel computerFirstThreeCardLabelNo1;
     private javax.swing.JLabel computerFirstThreeCardLabelNo2;
-    private javax.swing.JLabel computerFirstThreeCardNo3;
+    private javax.swing.JLabel computerFirstThreeCardLabelNo3;
+    private javax.swing.JLabel computerFirstThreeCardLabelNo4;
+    private javax.swing.JLabel computerFirstThreeCardLabelNo5;
+    private javax.swing.JLabel computerFirstThreeCardLabelNo6;
+    private javax.swing.JLabel computerFirstThreeCardNo4;
+    private javax.swing.JLabel computerFirstThreeCardNo5;
+    private javax.swing.JLabel computerFirstThreeCardNo6;
+    private javax.swing.JLabel d;
+    private javax.swing.JLabel e;
+    private javax.swing.JLabel ea;
+    private javax.swing.JLabel eb;
+    private javax.swing.JLabel ec;
+    private javax.swing.JLabel ed;
+    private javax.swing.JLabel ee;
+    private javax.swing.JLabel ef;
+    private javax.swing.JLabel eg;
+    private javax.swing.JLabel eh;
+    private javax.swing.JLabel ei;
+    private javax.swing.JLabel ej;
+    private javax.swing.JLabel ek;
+    private javax.swing.JLabel el;
+    private javax.swing.JLabel em;
+    private javax.swing.JLabel f;
+    private javax.swing.JLabel g;
+    private javax.swing.JLabel h;
+    private javax.swing.JLabel i;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel k;
+    private javax.swing.JLabel m;
     private javax.swing.JLabel myFirstThreeCardLabelNo1;
     private javax.swing.JLabel myFirstThreeCardLabelNo2;
     private javax.swing.JLabel myFirstThreeCardLabelNo3;
+    private javax.swing.JLabel testllr;
+    private javax.swing.JLabel testlud;
+    private javax.swing.JLabel wL;
+    private javax.swing.JLabel wa;
+    private javax.swing.JLabel wb;
+    private javax.swing.JLabel wc;
+    private javax.swing.JLabel wd;
+    private javax.swing.JLabel we;
+    private javax.swing.JLabel wf;
+    private javax.swing.JLabel wh;
+    private javax.swing.JLabel wi;
+    private javax.swing.JLabel wj;
+    private javax.swing.JLabel wk;
+    private javax.swing.JLabel wm;
+    private javax.swing.JLabel wn;
     // End of variables declaration//GEN-END:variables
 }

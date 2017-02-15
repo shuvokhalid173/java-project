@@ -10,6 +10,11 @@ import java.awt.Graphics;
 import java.awt.datatransfer.Transferable;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
@@ -66,9 +71,11 @@ public class NewJFrame1 extends javax.swing.JFrame {
         jDialog1 = new javax.swing.JDialog();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        jLabel1 = new javax.swing.JLabel();
+        click = new javax.swing.JButton();
+        secondlabel = new javax.swing.JLabel();
+        firstlabel3 = new javax.swing.JLabel();
+        test1 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -96,58 +103,85 @@ public class NewJFrame1 extends javax.swing.JFrame {
 
         jButton5.setText("jButton5");
 
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ss\\Desktop\\back.PNG")); // NOI18N
+        jLabel1.setText("jLabel1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setSize(new java.awt.Dimension(400, 400));
+        getContentPane().setLayout(null);
 
-        jButton2.setText("jButton2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        click.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
+        click.setForeground(new java.awt.Color(0, 153, 102));
+        click.setText("click");
+        click.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                clickActionPerformed(evt);
             }
         });
+        getContentPane().add(click);
+        click.setBounds(220, 330, 73, 33);
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jList1.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                jList1ValueChanged(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jList1);
+        secondlabel.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        secondlabel.setText("empty");
+        getContentPane().add(secondlabel);
+        secondlabel.setBounds(210, 30, 69, 85);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(79, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(129, 129, 129)
-                .addComponent(jButton2)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(120, Short.MAX_VALUE))
-        );
+        firstlabel3.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        firstlabel3.setText("empty");
+        getContentPane().add(firstlabel3);
+        firstlabel3.setBounds(50, 170, 69, 85);
+
+        test1.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        test1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/testproject__/Capture.PNG"))); // NOI18N
+        test1.setText("test1");
+        getContentPane().add(test1);
+        test1.setBounds(220, 280, 69, 85);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jList1ValueChanged
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void clickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickActionPerformed
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+        try {
+            test1.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.PNG"))));
+        } catch (IOException ex) {
+            Logger.getLogger(NewJFrame1.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        Thread tt; 
+        tt = new Thread () { 
+            int x = 220 , y = 280;
+            public void run () {
+                for (int j = 0; j < 3; j++) {
+                    for (int i = 1; i <= 10; i++) {
+                        test1.setBounds(x - (i * 17) , y - (i * 9) , 69 , 85);
+                        try {
+                            sleep (50); 
+                        }catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        
+                    }
+                    test1.setBounds(x , y , 69 , 85);
+                    for (int i = 1; i <= 10; i++) {
+                        test1.setBounds(x - (i * 1) , y - (i * 25) , 69 , 85);
+
+                        try {
+                            sleep (50); 
+                        }catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    test1.setBounds(220, 280, 69, 85);
+                    //testl.setBounds(220, 280, 69, 85);
+                }//test1.setIcon(null);
+        test1.setIcon(null);
+            }
+            
+        }; 
+        tt.start();
+        
+    }//GEN-LAST:event_clickActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,12 +220,14 @@ public class NewJFrame1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton click;
+    private javax.swing.JLabel firstlabel3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JDialog jDialog1;
-    private javax.swing.JList jList1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel secondlabel;
+    private javax.swing.JLabel test1;
     // End of variables declaration//GEN-END:variables
 }
