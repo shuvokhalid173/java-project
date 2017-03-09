@@ -23,26 +23,6 @@ import javax.swing.TransferHandler;
 import static javax.swing.TransferHandler.COPY_OR_MOVE;
 import static javax.swing.TransferHandler.MOVE;
 
-/**
- *
- * @author ss
- */
-class graph extends JComponent implements ActionListener {
-
-    Timer timer = new Timer (5 , this); 
-    private int x = 0 , y = 0; 
-    public void paintComponent (Graphics g) {
-        g.setColor(Color.red);
-        g.fillOval(x, y,5 ,5);
-    }
-    public void actionPerformed(ActionEvent e) {
-        x += 3;
-        y += 3;
-        repaint (); 
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-}
 
 
 public class NewJFrame1 extends javax.swing.JFrame {
@@ -54,8 +34,9 @@ public class NewJFrame1 extends javax.swing.JFrame {
     public NewJFrame1() {
        
         initComponents();
-       
-       
+        jTextField1.setEditable(false);
+       this.redSelected = false;
+       this.greenSelected = false;
     }
 
     /**
@@ -72,10 +53,12 @@ public class NewJFrame1 extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        click = new javax.swing.JButton();
-        secondlabel = new javax.swing.JLabel();
-        firstlabel3 = new javax.swing.JLabel();
-        test1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        wallpaper = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -110,78 +93,101 @@ public class NewJFrame1 extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(400, 400));
         getContentPane().setLayout(null);
 
-        click.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
-        click.setForeground(new java.awt.Color(0, 153, 102));
-        click.setText("click");
-        click.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clickActionPerformed(evt);
+        jLabel2.setText("green");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
             }
         });
-        getContentPane().add(click);
-        click.setBounds(220, 330, 73, 33);
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(310, 40, 80, 60);
 
-        secondlabel.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        secondlabel.setText("empty");
-        getContentPane().add(secondlabel);
-        secondlabel.setBounds(210, 30, 69, 85);
+        jLabel3.setText("red");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(170, 40, 80, 60);
 
-        firstlabel3.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        firstlabel3.setText("empty");
-        getContentPane().add(firstlabel3);
-        firstlabel3.setBounds(50, 170, 69, 85);
+        jButton1.setText("done");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(240, 230, 100, 30);
 
-        test1.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        test1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/testproject__/Capture.PNG"))); // NOI18N
-        test1.setText("test1");
-        getContentPane().add(test1);
-        test1.setBounds(220, 280, 69, 85);
+        wallpaper.setText("jLabel4");
+        getContentPane().add(wallpaper);
+        wallpaper.setBounds(0, 0, 490, 400);
+
+        jButton2.setText("clear");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(143, 233, 80, 30);
+
+        jTextField1.setText("jTextField1");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(530, 80, 120, 130);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void clickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickActionPerformed
-        
+    private boolean redSelected , greenSelected; 
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         try {
-            test1.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.PNG"))));
-        } catch (IOException ex) {
-            Logger.getLogger(NewJFrame1.class.getName()).log(Level.SEVERE, null, ex);
+            jLabel3.setIcon(new ImageIcon (ImageIO.read(new File ("red.png"))));
+            jLabel2.setIcon(null);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        
-        Thread tt; 
-        tt = new Thread () { 
-            int x = 220 , y = 280;
-            public void run () {
-                for (int j = 0; j < 3; j++) {
-                    for (int i = 1; i <= 10; i++) {
-                        test1.setBounds(x - (i * 17) , y - (i * 9) , 69 , 85);
-                        try {
-                            sleep (50); 
-                        }catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        
-                    }
-                    test1.setBounds(x , y , 69 , 85);
-                    for (int i = 1; i <= 10; i++) {
-                        test1.setBounds(x - (i * 1) , y - (i * 25) , 69 , 85);
+        redSelected = true;
+        greenSelected = false;
+    }//GEN-LAST:event_jLabel3MouseClicked
 
-                        try {
-                            sleep (50); 
-                        }catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    test1.setBounds(220, 280, 69, 85);
-                    //testl.setBounds(220, 280, 69, 85);
-                }//test1.setIcon(null);
-        test1.setIcon(null);
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        try {
+            jLabel2.setIcon(new ImageIcon (ImageIO.read(new File ("green.png"))));
+            jLabel3.setIcon(null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        greenSelected = true;
+        redSelected = false;
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {    
+            if (greenSelected == true) {
+                wallpaper.setIcon (new ImageIcon (ImageIO.read(new File ("green.png")))); 
             }
-            
-        }; 
-        tt.start();
+            else if (redSelected == true) {
+                wallpaper.setIcon (new ImageIcon (ImageIO.read(new File ("red.png"))));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }    
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        wallpaper.setIcon(null);
         
-    }//GEN-LAST:event_clickActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -220,14 +226,16 @@ public class NewJFrame1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton click;
-    private javax.swing.JLabel firstlabel3;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel secondlabel;
-    private javax.swing.JLabel test1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel wallpaper;
     // End of variables declaration//GEN-END:variables
 }

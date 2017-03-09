@@ -33,14 +33,14 @@ import javax.swing.Timer;
 import javax.swing.*;
 
 
-public class mouse extends JComponent implements ActionListener , KeyListener {
+class Frame extends JComponent implements ActionListener , KeyListener {
     Timer tim = new Timer (5 , this);
     private int x = 0 , y = 0;
     private int vx = 5 , vy = 4;
     private int  a = 0 , b = 630;
     private int ax = 0;
     private boolean flagx = false , flagy = false , flaga = false;
-    mouse () {
+    Frame () {
         addKeyListener (this); 
         setFocusable(true);
         setFocusTraversalKeysEnabled (false);
@@ -73,8 +73,9 @@ public class mouse extends JComponent implements ActionListener , KeyListener {
                     
                 } 
                 else {
-                    new notice ("failed"); 
+                    //new notice ("failed"); 
                     x = 0; y = 0;
+                    return ;
                 }
                     
             }
@@ -129,15 +130,12 @@ public class mouse extends JComponent implements ActionListener , KeyListener {
         }
         
     }
-    public static void main (String [] args) throws IOException {
-        JFrame frame = new JFrame ("mouse listener example"); 
-        frame.setSize(700 , 700);
-        mouse goo = new mouse ();
-        
-        frame.add(goo); 
-        //frame.setLayout(new BorderLayout ());
-        frame.setVisible(true);
+}
+
+public class mouse extends JFrame {
+    mouse () {
+        setSize(700 , 700); 
+        add (new Frame()); 
+        setVisible (true) ; 
     }
-
-
 }

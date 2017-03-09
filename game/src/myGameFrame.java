@@ -1,11 +1,14 @@
 /*
     In the name ALLAH
 */
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import static java.lang.Thread.sleep;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -33,43 +36,24 @@ public class myGameFrame extends javax.swing.JFrame {
     ThreeCard [] array = new ThreeCard[5]; 
        
     private int counter = 0;
-     ThreeCard threeCard1 , threeCard2 , threeCard3 , threeCard4;
+    ThreeCard threeCard1 , threeCard2 , threeCard3 , threeCard4;
     myTransferHandler mytransporthandler; 
     object_card card2 , card3 , card4 , card5 , card6 , card7 , card8 , card9 , card10 , card11 , card12 , card13 , card14;
-    object_card [] carrd = new object_card [33];
-    public myGameFrame() {
+    object_card [] carrd = new object_card [55];
+    HashMap < ThreeCard , Integer > ThreeCardMap = new HashMap < ThreeCard , Integer > ();
+    ThreeCardSort Sort;
+    DeckOfCards newDeck;
+    
+                    //ThreeCard strray[] = new ThreeCard [5]; ///  array to sort;
+                    
+    public myGameFrame() throws IOException {
         initComponents();
-       
-        try {
-            card2 = new object_card ("2" , "spades" , 2 , 5 , ImageIO.read(new File ("2.png")));
-            card3 = new object_card ("3" , "spades" , 3 , 5 , ImageIO.read(new File ("3.png")));
-            card4 = new object_card ("4" , "spades" , 4 , 5 , ImageIO.read(new File ("4.png")));
-            card5 = new object_card ("5" , "spades" , 5 , 5 , ImageIO.read(new File ("5.png")));
-            card6 = new object_card ("6" , "spades" , 6 , 5 , ImageIO.read(new File ("6.png")));
-            card7 = new object_card ("7" , "spades" , 7 , 5 , ImageIO.read(new File ("7.png")));
-            card8 = new object_card ("8" , "spades" , 8 , 5 , ImageIO.read(new File ("8.png")));
-            card9 = new object_card ("9" , "spades" , 9 , 5 , ImageIO.read(new File ("9.png")));
-            card10 = new object_card ("10" , "spades" , 10 , 10 , ImageIO.read(new File ("10.png")));
-            card11 = new object_card ("Jack" , "spades" , 11 , 10 , ImageIO.read(new File ("jack.png")));
-            card12 = new object_card ("Queen" , "spades" , 12 , 10 , ImageIO.read(new File ("queen.png")));
-            card13 = new object_card ("King" , "spades" , 13 , 10 , ImageIO.read(new File ("king.png")));
-            card14 = new object_card ("Ace" , "spades" , 14 , 10 , ImageIO.read(new File ("ace.png")));
-        } catch (IOException e) {}
-        
-        carrd[0] = card2;
-        carrd[1] = card3;
-        carrd[2] = card4;
-        carrd[3] = card5;
-        carrd[4] = card6;
-        carrd[5] = card7;
-        carrd[6] = card8;
-        carrd[7] = card9;
-        carrd[8] = card10;
-        carrd[9] = card11;
-        carrd[10] = card12;
-        carrd[11] = card13;
-        carrd[12] = card14;
-        //Integer [] arr = new Integer[] {1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 , 11 , 12 , 13};
+        newDeck = new DeckOfCards ();
+        carrd = newDeck.carrd;
+        userPoint = 0;
+        northPoint= 0; 
+        westPoint = 0; 
+        eastPoint = 0;
         mytransporthandler = new myTransferHandler ("icon"); 
         
     }
@@ -111,12 +95,12 @@ public class myGameFrame extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         myFirstThreeCardLabelNo2 = new javax.swing.JLabel();
         myFirstThreeCardLabelNo1 = new javax.swing.JLabel();
-        myFirstThreeCardLabelNo3 = new javax.swing.JLabel();
-        computerFirstThreeCardLabelNo1 = new javax.swing.JLabel();
-        computerFirstThreeCardLabelNo2 = new javax.swing.JLabel();
+        myFirstThreeCardLabelNo = new javax.swing.JLabel();
+        EastChalLabel1 = new javax.swing.JLabel();
+        EastChalLabel2 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        computerFirstThreeCardNo4 = new javax.swing.JLabel();
+        EastChalLabel = new javax.swing.JLabel();
         em = new javax.swing.JLabel();
         ef = new javax.swing.JLabel();
         ek = new javax.swing.JLabel();
@@ -164,15 +148,21 @@ public class myGameFrame extends javax.swing.JFrame {
         Nb = new javax.swing.JLabel();
         Nn = new javax.swing.JLabel();
         Nm = new javax.swing.JLabel();
-        computerFirstThreeCardLabelNo3 = new javax.swing.JLabel();
-        computerFirstThreeCardLabelNo4 = new javax.swing.JLabel();
-        computerFirstThreeCardNo5 = new javax.swing.JLabel();
-        computerFirstThreeCardLabelNo5 = new javax.swing.JLabel();
-        computerFirstThreeCardLabelNo6 = new javax.swing.JLabel();
-        computerFirstThreeCardNo6 = new javax.swing.JLabel();
+        NorthChalLabel1 = new javax.swing.JLabel();
+        NorthChalLabel2 = new javax.swing.JLabel();
+        NorthChalLabel = new javax.swing.JLabel();
+        WestChalLabel = new javax.swing.JLabel();
+        WestChalLabel2 = new javax.swing.JLabel();
+        WestChalLabel3 = new javax.swing.JLabel();
         MakerLabel13 = new javax.swing.JLabel();
         ea = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
+        myFirstThreeCardLabelNo3 = new javax.swing.JLabel();
+        NorthChalLabel3 = new javax.swing.JLabel();
+        WestChalLabel1 = new javax.swing.JLabel();
+        EastChalLabelT = new javax.swing.JLabel();
+        EastLabel = new javax.swing.JLabel();
+        Direction = new javax.swing.JLabel();
 
         jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\ss\\Desktop\\Capture.PNG")); // NOI18N
         jLabel10.setText("jLabel1");
@@ -432,24 +422,21 @@ public class myGameFrame extends javax.swing.JFrame {
 
         myFirstThreeCardLabelNo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
         getContentPane().add(myFirstThreeCardLabelNo2);
-        myFirstThreeCardLabelNo2.setBounds(420, 160, 63, 94);
+        myFirstThreeCardLabelNo2.setBounds(590, 220, 63, 94);
 
         myFirstThreeCardLabelNo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
         getContentPane().add(myFirstThreeCardLabelNo1);
-        myFirstThreeCardLabelNo1.setBounds(360, 160, 63, 94);
+        myFirstThreeCardLabelNo1.setBounds(530, 220, 63, 94);
+        getContentPane().add(myFirstThreeCardLabelNo);
+        myFirstThreeCardLabelNo.setBounds(710, 220, 63, 90);
 
-        myFirstThreeCardLabelNo3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
-        myFirstThreeCardLabelNo3.setText("jLabel13");
-        getContentPane().add(myFirstThreeCardLabelNo3);
-        myFirstThreeCardLabelNo3.setBounds(480, 160, 63, 94);
+        EastChalLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(EastChalLabel1);
+        EastChalLabel1.setBounds(760, 160, 63, 94);
 
-        computerFirstThreeCardLabelNo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
-        getContentPane().add(computerFirstThreeCardLabelNo1);
-        computerFirstThreeCardLabelNo1.setBounds(700, 160, 63, 94);
-
-        computerFirstThreeCardLabelNo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
-        getContentPane().add(computerFirstThreeCardLabelNo2);
-        computerFirstThreeCardLabelNo2.setBounds(760, 160, 63, 94);
+        EastChalLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(EastChalLabel2);
+        EastChalLabel2.setBounds(820, 160, 63, 94);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(102, 204, 0));
@@ -467,10 +454,8 @@ public class myGameFrame extends javax.swing.JFrame {
         jButton4.setText("Deal");
         getContentPane().add(jButton4);
         jButton4.setBounds(770, 610, 102, 41);
-
-        computerFirstThreeCardNo4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
-        getContentPane().add(computerFirstThreeCardNo4);
-        computerFirstThreeCardNo4.setBounds(820, 160, 63, 94);
+        getContentPane().add(EastChalLabel);
+        EastChalLabel.setBounds(940, 160, 63, 90);
 
         em.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lremptycard.PNG"))); // NOI18N
         em.setText("jLabel13");
@@ -733,29 +718,25 @@ public class myGameFrame extends javax.swing.JFrame {
         getContentPane().add(Nm);
         Nm.setBounds(890, 0, 63, 94);
 
-        computerFirstThreeCardLabelNo3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
-        getContentPane().add(computerFirstThreeCardLabelNo3);
-        computerFirstThreeCardLabelNo3.setBounds(530, 100, 63, 94);
+        NorthChalLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(NorthChalLabel1);
+        NorthChalLabel1.setBounds(530, 100, 63, 94);
 
-        computerFirstThreeCardLabelNo4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
-        getContentPane().add(computerFirstThreeCardLabelNo4);
-        computerFirstThreeCardLabelNo4.setBounds(590, 100, 63, 94);
+        NorthChalLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(NorthChalLabel2);
+        NorthChalLabel2.setBounds(590, 100, 63, 94);
+        getContentPane().add(NorthChalLabel);
+        NorthChalLabel.setBounds(710, 100, 63, 90);
+        getContentPane().add(WestChalLabel);
+        WestChalLabel.setBounds(300, 160, 63, 90);
 
-        computerFirstThreeCardNo5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
-        getContentPane().add(computerFirstThreeCardNo5);
-        computerFirstThreeCardNo5.setBounds(650, 100, 63, 94);
+        WestChalLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(WestChalLabel2);
+        WestChalLabel2.setBounds(420, 160, 63, 94);
 
-        computerFirstThreeCardLabelNo5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
-        getContentPane().add(computerFirstThreeCardLabelNo5);
-        computerFirstThreeCardLabelNo5.setBounds(530, 220, 63, 94);
-
-        computerFirstThreeCardLabelNo6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
-        getContentPane().add(computerFirstThreeCardLabelNo6);
-        computerFirstThreeCardLabelNo6.setBounds(590, 220, 63, 94);
-
-        computerFirstThreeCardNo6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
-        getContentPane().add(computerFirstThreeCardNo6);
-        computerFirstThreeCardNo6.setBounds(650, 220, 63, 94);
+        WestChalLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(WestChalLabel3);
+        WestChalLabel3.setBounds(480, 160, 63, 94);
 
         MakerLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
         MakerLabel13.setText("jLabel1");
@@ -783,6 +764,27 @@ public class myGameFrame extends javax.swing.JFrame {
         });
         getContentPane().add(jButton5);
         jButton5.setBounds(323, 610, 90, 40);
+
+        myFirstThreeCardLabelNo3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        myFirstThreeCardLabelNo3.setText("jLabel13");
+        getContentPane().add(myFirstThreeCardLabelNo3);
+        myFirstThreeCardLabelNo3.setBounds(650, 220, 63, 94);
+
+        NorthChalLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(NorthChalLabel3);
+        NorthChalLabel3.setBounds(650, 100, 63, 94);
+
+        WestChalLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(WestChalLabel1);
+        WestChalLabel1.setBounds(360, 160, 63, 94);
+
+        EastChalLabelT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Capture.PNG"))); // NOI18N
+        getContentPane().add(EastChalLabelT);
+        EastChalLabelT.setBounds(700, 160, 63, 94);
+        getContentPane().add(EastLabel);
+        EastLabel.setBounds(880, 160, 63, 86);
+        getContentPane().add(Direction);
+        Direction.setBounds(540, 190, 160, 30);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -849,12 +851,16 @@ public class myGameFrame extends javax.swing.JFrame {
         thand.exportAsDrag(jcomp, evt, TransferHandler.MOVE);
         
     }//GEN-LAST:event_iMouseDragged
-
+    private boolean flags = false;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        northPoint = 0; 
+        eastPoint = 0; 
+        westPoint = 0; 
+        userPoint = 0;
         array[0] = null; 
         array[1] = null; 
         array[2] = null; 
-        counter = 0;
+        counter = 0; /// this counter varriable will count the round  that means it will count each chal
         try {
             MakerLabel1.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
             MakerLabel2.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
@@ -870,9 +876,32 @@ public class myGameFrame extends javax.swing.JFrame {
             MakerLabel11.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
             MakerLabel12.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
             MakerLabel13.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
-            myFirstThreeCardLabelNo1.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
-            myFirstThreeCardLabelNo2.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
-            myFirstThreeCardLabelNo3.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
+            if (flags == true) {
+                myFirstThreeCardLabelNo1.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
+                myFirstThreeCardLabelNo2.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
+                myFirstThreeCardLabelNo3.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
+                myFirstThreeCardLabelNo.setIcon(null);
+
+                /// reset the chal label ////
+
+                EastChalLabel1.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
+                EastChalLabel2.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
+                EastChalLabelT.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
+                EastChalLabel.setIcon(null);
+                EastLabel.setIcon (null);
+
+                NorthChalLabel1.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
+                NorthChalLabel2.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
+                NorthChalLabel3.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
+                NorthChalLabel.setIcon(null);
+
+
+                WestChalLabel1.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
+                WestChalLabel2.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
+                WestChalLabel3.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
+                WestChalLabel.setIcon(null);
+            }
+            flags = true;
         } catch (IOException ex) {
             Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1282,7 +1311,7 @@ public class myGameFrame extends javax.swing.JFrame {
         object_card stcf = null , stcs = null , stct = null; // secondThreeCardsFirstCard
         object_card ttcf = null, ttcs = null , ttct = null; // thirdThreeCardsFirstCard
         object_card fftcf = null , fftcs = null, fftct = null; 
-        for (int i = 0; i < 13; i++) {
+        for (int i = 0; i < 52; i++) {
             ImageIcon tt = new ImageIcon (carrd[i].bufferedimage);
             //message.setIcon(tt);
              
@@ -1292,7 +1321,7 @@ public class myGameFrame extends javax.swing.JFrame {
             }
         }
         
-        for (int i = 0; i < 13; i++) {
+        for (int i = 0; i < 52; i++) {
             ImageIcon tt = new ImageIcon (carrd[i].bufferedimage); 
             if (testIcon2.getImage() == tt.getImage()) {
                 ftcs = carrd[i]; 
@@ -1300,7 +1329,7 @@ public class myGameFrame extends javax.swing.JFrame {
             }
         }
              
-        for (int i = 0; i < 13; i++) {
+        for (int i = 0; i < 52; i++) {
             ImageIcon tt = new ImageIcon (carrd[i].bufferedimage); 
             if (testIcon3.getImage() == tt.getImage()) {
                 ftct = carrd[i]; 
@@ -1308,7 +1337,7 @@ public class myGameFrame extends javax.swing.JFrame {
             }
         }
         
-        for (int i = 0; i < 13; i++) {
+        for (int i = 0; i < 52; i++) {
             ImageIcon tt = new ImageIcon (carrd[i].bufferedimage);
             //message.setIcon(tt);
              
@@ -1318,7 +1347,7 @@ public class myGameFrame extends javax.swing.JFrame {
             }
         }
         
-        for (int i = 0; i < 13; i++) {
+        for (int i = 0; i < 52; i++) {
             ImageIcon tt = new ImageIcon (carrd[i].bufferedimage); 
             if (testIcon5.getImage() == tt.getImage()) {
                 stcs = carrd[i]; 
@@ -1326,7 +1355,7 @@ public class myGameFrame extends javax.swing.JFrame {
             }
         }
              
-        for (int i = 0; i < 13; i++) {
+        for (int i = 0; i < 52; i++) {
             ImageIcon tt = new ImageIcon (carrd[i].bufferedimage); 
             if (testIcon6.getImage() == tt.getImage()) {
                 stct = carrd[i]; 
@@ -1334,7 +1363,7 @@ public class myGameFrame extends javax.swing.JFrame {
             }
         }
         
-        for (int i = 0; i < 13; i++) {
+        for (int i = 0; i < 52; i++) {
             ImageIcon tt = new ImageIcon (carrd[i].bufferedimage);
             //message.setIcon(tt);
              
@@ -1344,7 +1373,7 @@ public class myGameFrame extends javax.swing.JFrame {
             }
         }
         
-        for (int i = 0; i < 13; i++) {
+        for (int i = 0; i < 52; i++) {
             ImageIcon tt = new ImageIcon (carrd[i].bufferedimage); 
             if (testIcon8.getImage() == tt.getImage()) {
                 ttcs = carrd[i]; 
@@ -1352,7 +1381,7 @@ public class myGameFrame extends javax.swing.JFrame {
             }
         }
              
-        for (int i = 0; i < 13; i++) {
+        for (int i = 0; i < 52; i++) {
             ImageIcon tt = new ImageIcon (carrd[i].bufferedimage); 
             if (testIcon9.getImage() == tt.getImage()) {
                 ttct = carrd[i]; 
@@ -1360,7 +1389,7 @@ public class myGameFrame extends javax.swing.JFrame {
             }
         }
              
-        for (int i = 0; i < 13; i++) {
+        for (int i = 0; i < 52; i++) {
             ImageIcon tt = new ImageIcon (carrd[i].bufferedimage); 
             if (testIcon10.getImage() == tt.getImage()) {
                 fftcf = carrd[i]; 
@@ -1368,7 +1397,7 @@ public class myGameFrame extends javax.swing.JFrame {
             }
         }
              
-        for (int i = 0; i < 13; i++) {
+        for (int i = 0; i < 52; i++) {
             ImageIcon tt = new ImageIcon (carrd[i].bufferedimage); 
             if (testIcon11.getImage() == tt.getImage()) {
                 fftcs = carrd[i]; 
@@ -1376,7 +1405,7 @@ public class myGameFrame extends javax.swing.JFrame {
             }
         }
              
-        for (int i = 0; i < 13; i++) {
+        for (int i = 0; i < 52; i++) {
             ImageIcon tt = new ImageIcon (carrd[i].bufferedimage); 
             if (testIcon12.getImage() == tt.getImage()) {
                 fftct = carrd[i]; 
@@ -1451,34 +1480,663 @@ public class myGameFrame extends javax.swing.JFrame {
     private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
         
     }//GEN-LAST:event_jButton2MouseEntered
+    private void putEmptyCard (ThreeCard threeCard) throws IOException {
+        ImageIcon ftt = new ImageIcon (threeCard.first_card.bufferedimage);
+        ImageIcon stt = new ImageIcon (threeCard.second_card.bufferedimage); 
+        ImageIcon ttt = new ImageIcon (threeCard.third_card.bufferedimage);
+        ImageIcon icon__ [] = new ImageIcon [4];
+        icon__[0] = ftt; 
+        icon__[1] = stt;
+        icon__[2] = ttt;
+        ImageIcon stIcon = new ImageIcon (ImageIO.read(new File ("Capture.PNG")));
+        ImageIcon ml1 = (ImageIcon) MakerLabel1.getIcon();
+        ImageIcon ml2 = (ImageIcon) MakerLabel2.getIcon();
+        ImageIcon ml3 = (ImageIcon) MakerLabel3.getIcon();
+        ImageIcon ml4 = (ImageIcon) MakerLabel4.getIcon();
+        ImageIcon ml5 = (ImageIcon) MakerLabel5.getIcon();
+        ImageIcon ml6 = (ImageIcon) MakerLabel6.getIcon();
+        ImageIcon ml7 = (ImageIcon) MakerLabel7.getIcon();
+        ImageIcon ml8 = (ImageIcon) MakerLabel8.getIcon();
+        ImageIcon ml9 = (ImageIcon) MakerLabel9.getIcon();
+        ImageIcon ml10 = (ImageIcon) MakerLabel10.getIcon();
+        ImageIcon ml11 = (ImageIcon) MakerLabel11.getIcon();
+        ImageIcon ml12 = (ImageIcon) MakerLabel12.getIcon();
+        ImageIcon ml13 = (ImageIcon) MakerLabel13.getIcon();
+        
+        for (int i = 0; i < 3; i++) {
+            if (icon__[i].getImage() == ml1.getImage()) {
+                MakerLabel1.setIcon(stIcon);
+            }
+            else if (icon__[i].getImage() == ml2.getImage()) {
+                //ImageIcon ml2 = (ImageIcon) MakerLabel2.getIcon(); 
+                MakerLabel2.setIcon(stIcon);
+            }
+            else if (icon__[i].getImage() == ml3.getImage()) {
+                MakerLabel3.setIcon(stIcon);
+            }
+            else if (icon__[i].getImage() == ml4.getImage()) {
+                MakerLabel4.setIcon(stIcon);
+            }
+            else if (icon__[i].getImage() == ml5.getImage()) {
+                MakerLabel5.setIcon(stIcon);
+            }
+            else if (icon__[i].getImage() == ml6.getImage()) {
+                MakerLabel6.setIcon(stIcon);
+            }
+            else if (icon__[i].getImage() == ml7.getImage()) {
+                MakerLabel7.setIcon(stIcon);
+            }
+            else if (icon__[i].getImage() == ml8.getImage()) {
+                MakerLabel8.setIcon(stIcon);
+            }
+            else if (icon__[i].getImage() == ml9.getImage()) {
+                MakerLabel9.setIcon(stIcon);
+            }
+            else if (icon__[i].getImage() == ml10.getImage()) {
+                MakerLabel10.setIcon(stIcon);
+            }
+            else if (icon__[i].getImage() == ml11.getImage()) {
+                MakerLabel11.setIcon(stIcon);
+            }
+            else if (icon__[i].getImage() == ml12.getImage()) {
+                MakerLabel12.setIcon(stIcon);
+            }
+            else if (icon__[i].getImage() == ml13.getImage()) {
+                MakerLabel13.setIcon(stIcon);
+            }
+        }
+    }
+    
+    public int northPoint , userPoint , eastPoint , westPoint;
+    
     
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        //ValueFromChecker vchecker = new 
+        //ValueFromChecker vchecker = new
         
-        if (counter == 0) {
-            myFirstThreeCardLabelNo1.setIcon(new ImageIcon (array[0].first_card.bufferedimage));
-            myFirstThreeCardLabelNo2.setIcon(new ImageIcon (array[0].second_card.bufferedimage));
-            myFirstThreeCardLabelNo3.setIcon(new ImageIcon (array[0].third_card.bufferedimage));
-        }
-        else if (counter == 1) {
-            myFirstThreeCardLabelNo1.setIcon(new ImageIcon (array[1].first_card.bufferedimage));
-            myFirstThreeCardLabelNo2.setIcon(new ImageIcon (array[1].second_card.bufferedimage));
-            myFirstThreeCardLabelNo3.setIcon(new ImageIcon (array[1].third_card.bufferedimage));
-        }
-        else if (counter == 2) {
-            myFirstThreeCardLabelNo1.setIcon(new ImageIcon (array[2].first_card.bufferedimage));
-            myFirstThreeCardLabelNo2.setIcon(new ImageIcon (array[2].second_card.bufferedimage));
-            myFirstThreeCardLabelNo3.setIcon(new ImageIcon (array[2].third_card.bufferedimage));
-        }
-        else if (counter == 3) {
-            myFirstThreeCardLabelNo1.setIcon(new ImageIcon (array[3].first_card.bufferedimage));
-            myFirstThreeCardLabelNo2.setIcon(new ImageIcon (array[3].second_card.bufferedimage));
-            myFirstThreeCardLabelNo3.setIcon(new ImageIcon (array[3].third_card.bufferedimage));
-            
-        }
-        counter++;
-    }//GEN-LAST:event_jButton3ActionPerformed
+        Thread wait_ = new Thread () {
+            public void run () {
+                if (counter == 0) {
+                    int FirstRoundPoint = 0 ;
+                    /// user's card 
+                    myFirstThreeCardLabelNo1.setIcon(new ImageIcon (array[0].first_card.bufferedimage));
+                    myFirstThreeCardLabelNo2.setIcon(new ImageIcon (array[0].second_card.bufferedimage));
+                    myFirstThreeCardLabelNo3.setIcon(new ImageIcon (array[0].third_card.bufferedimage));
+                    
+                    // point calculation //
+                    FirstRoundPoint += array[0].first_card.point; 
+                    FirstRoundPoint += array[0].second_card.point; 
+                    FirstRoundPoint += array[0].third_card.point;
+                    
+                    try { 
+                        putEmptyCard (array[0]);
+                        sleep (1000); 
+                    } catch (IOException ex) {
+                        Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    // east side 
+                    EastChalLabelT.setIcon(new ImageIcon (carrd[CardDistribution[0][0] - 1].bufferedimage));
+                    EastChalLabel1.setIcon(new ImageIcon (carrd[CardDistribution[0][1] - 1].bufferedimage));
+                    EastChalLabel2.setIcon(new ImageIcon (carrd[CardDistribution[0][2] - 1].bufferedimage));
+                    
+                    FirstRoundPoint += carrd[CardDistribution[0][0] - 1].point; 
+                    FirstRoundPoint += carrd[CardDistribution[0][1] - 1].point; 
+                    FirstRoundPoint += carrd[CardDistribution[0][2] - 1].point; 
+                    
+                    try {
+                        sleep (1000); 
+                    }catch (Exception ee) {
+                        ee.printStackTrace();
+                    }
+                    /// North side
+                    NorthChalLabel1.setIcon(new ImageIcon (carrd[CardDistribution[1][0] - 1].bufferedimage));
+                    NorthChalLabel2.setIcon(new ImageIcon (carrd[CardDistribution[1][1] - 1].bufferedimage));
+                    NorthChalLabel3.setIcon(new ImageIcon (carrd[CardDistribution[1][2] - 1].bufferedimage));
+                    
+                    FirstRoundPoint += carrd[CardDistribution[1][0] - 1].point; 
+                    FirstRoundPoint += carrd[CardDistribution[1][1] - 1].point; 
+                    FirstRoundPoint += carrd[CardDistribution[1][2] - 1].point; 
+                    
+                    
+                    try {
+                        sleep (1000); 
+                    }catch (Exception ee) {
+                        ee.printStackTrace();
+                    }
+                    // west side
+                    WestChalLabel1.setIcon(new ImageIcon (carrd[CardDistribution[2][0] - 1].bufferedimage));
+                    WestChalLabel2.setIcon(new ImageIcon (carrd[CardDistribution[2][1] - 1].bufferedimage));
+                    WestChalLabel3.setIcon(new ImageIcon (carrd[CardDistribution[2][2] - 1].bufferedimage));
+                    
+                    
+                    FirstRoundPoint += carrd[CardDistribution[2][0] - 1].point; 
+                    FirstRoundPoint += carrd[CardDistribution[2][1] - 1].point; 
+                    FirstRoundPoint += carrd[CardDistribution[2][2] - 1].point; 
+                    
+                    
+                    System.out.println ("enter"); 
+                    /**
+                     * here i will find which player will take the lead ...
+                     * for this i will sort the four three card (of course it will be in decending order ) 
+                     * then i will chose who gets the largest;
+                     */
+                    
+                    ThreeCard strray[] = new ThreeCard [5]; ///  array to sort;
+                    strray[0] = array[0];
+                    strray[1] = new ThreeCard (carrd[CardDistribution[0][0] - 1], carrd[CardDistribution[0][1] - 1], carrd[CardDistribution[0][2] - 1]); 
+                    strray[2] = new ThreeCard (carrd[CardDistribution[1][0] - 1], carrd[CardDistribution[1][1] - 1], carrd[CardDistribution[1][2] - 1]); 
+                    strray[3] = new ThreeCard (carrd[CardDistribution[2][0] - 1], carrd[CardDistribution[2][1] - 1], carrd[CardDistribution[2][2] - 1]); 
+                    ThreeCard trray [] = new ThreeCard [5]; /// temporary array to check out;
+                    for (int i = 0; i < 4; i++) {
+                        trray[i] = strray[i];
+                    }
+                    Sort = new ThreeCardSort  (strray);
+                   
+                    
+                    int chosenIndex = 0 ; 
+                    for (int i = 0; i < 4; i++) {
+                       if (strray[0] == trray[i]) {
+                           chosenIndex = i; /// found the person who got the lead;
+                           break;
+                       } 
+                    }
+                    /**
+                     * player     code        imageIcon
+                     * user       0           arrowDown
+                     * East       1           arrowRight
+                     * North      2           arrowUp
+                     * West       3           arrowLeft
+                     */
+                    Direction.setText("comparing...");
+                    
+                    try {
+                        sleep(500); 
+                    } catch (Exception ee) {
+                        ee.printStackTrace();
+                    }
+                    Direction.setText(null);
+                    if (chosenIndex == 0) {
+                        System.out.println ("user took the lead and has gotten point = " + FirstRoundPoint);
+                        userPoint += FirstRoundPoint; 
+                        try {
+                            Direction.setIcon(new ImageIcon (ImageIO.read(new File ("arrowDown.png"))));
+                        } catch (IOException ex) {
+                            Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    else if (chosenIndex == 1) {
+                        System.out.println ("East took the lead and has gotten point = " + FirstRoundPoint);
+                        eastPoint += FirstRoundPoint; 
+                        try {
+                            Direction.setIcon(new ImageIcon (ImageIO.read(new File ("arrowRight.png"))));
+                        } catch (IOException ex) {
+                            Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    else if (chosenIndex == 2) {
+                        System.out.println ("Nort took the leadand has gotten point = " + FirstRoundPoint);
+                        northPoint += FirstRoundPoint; 
+                        try {
+                            Direction.setIcon(new ImageIcon (ImageIO.read(new File ("arrowUp.png"))));
+                        } catch (IOException ex) {
+                            Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    else {
+                        System.out.println ("West took the leadand has gotten point = " + FirstRoundPoint);
+                        westPoint += FirstRoundPoint; 
+                        try {
+                            Direction.setIcon(new ImageIcon (ImageIO.read(new File ("arrowLeft.png"))));
+                        } catch (IOException ex) {
+                            Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    System.out.println ("chosen index is " + chosenIndex);
+                    System.out.println (strray[0].first_card.name +  " " + strray[0].first_card.suit);
+                    System.out.println (strray[0].second_card.name +  " " + strray[0].second_card.suit);
+                    System.out.println (strray[0].third_card.name +  " " + strray[0].third_card.suit);
+                    
+                    System.out.println (trray[chosenIndex].first_card.name +  " " + trray[chosenIndex].first_card.suit);
+                    System.out.println (trray[chosenIndex].second_card.name +  " " + trray[chosenIndex].second_card.suit);
+                    System.out.println (trray[chosenIndex].third_card.name +  " " + trray[chosenIndex].third_card.suit);
+                }
+                else if (counter == 1) {
+                    myFirstThreeCardLabelNo1.setIcon(new ImageIcon (array[1].first_card.bufferedimage));
+                    myFirstThreeCardLabelNo2.setIcon(new ImageIcon (array[1].second_card.bufferedimage));
+                    myFirstThreeCardLabelNo3.setIcon(new ImageIcon (array[1].third_card.bufferedimage));
+                    
+                    int SecondRoundPoint = 0; 
+                    
+                    SecondRoundPoint += array[1].first_card.point; 
+                    SecondRoundPoint += array[1].second_card.point;
+                    SecondRoundPoint += array[1].third_card.point;
+                    
+                    try {
+                        putEmptyCard (array[1]);
+                        sleep (1000); 
+                    } catch (IOException ex) {
+                        Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null , ex);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    }
 
+                    EastChalLabelT.setIcon(new ImageIcon (carrd[CardDistribution[0][3] - 1].bufferedimage));
+                    EastChalLabel1.setIcon(new ImageIcon (carrd[CardDistribution[0][4] - 1].bufferedimage));
+                    EastChalLabel2.setIcon(new ImageIcon (carrd[CardDistribution[0][5] - 1].bufferedimage));
+
+                    
+                    SecondRoundPoint += carrd[CardDistribution[0][3] - 1].point; 
+                    SecondRoundPoint += carrd[CardDistribution[0][4] - 1].point; 
+                    SecondRoundPoint += carrd[CardDistribution[0][5] - 1].point; 
+                    
+                    
+                    try {
+                        sleep (1000); 
+                    }catch (Exception ee) {
+                        ee.printStackTrace();
+                    }
+                    NorthChalLabel1.setIcon(new ImageIcon (carrd[CardDistribution[1][3] - 1].bufferedimage));
+                    NorthChalLabel2.setIcon(new ImageIcon (carrd[CardDistribution[1][4] - 1].bufferedimage));
+                    NorthChalLabel3.setIcon(new ImageIcon (carrd[CardDistribution[1][5] - 1].bufferedimage));
+                    
+                    
+                    SecondRoundPoint += carrd[CardDistribution[1][3] - 1].point; 
+                    SecondRoundPoint += carrd[CardDistribution[1][4] - 1].point; 
+                    SecondRoundPoint += carrd[CardDistribution[1][5] - 1].point; 
+                    
+                    try {
+                        sleep (1000); 
+                    }catch (Exception ee) {
+                        ee.printStackTrace();
+                    }
+                    WestChalLabel1.setIcon(new ImageIcon (carrd[CardDistribution[2][3] - 1].bufferedimage));
+                    WestChalLabel2.setIcon(new ImageIcon (carrd[CardDistribution[2][4] - 1].bufferedimage));
+                    WestChalLabel3.setIcon(new ImageIcon (carrd[CardDistribution[2][5] - 1].bufferedimage));
+                    
+                    
+                    SecondRoundPoint += carrd[CardDistribution[2][3] - 1].point; 
+                    SecondRoundPoint += carrd[CardDistribution[2][4] - 1].point; 
+                    SecondRoundPoint += carrd[CardDistribution[2][5] - 1].point; 
+                    
+                    
+                    /**
+                     * here i will find which player will take the lead ...
+                     * for this i will sort the four three card (of course it will be in decending order ) 
+                     * then i will chose who gets the largest;
+                     */
+                    
+                    ThreeCard strray[] = new ThreeCard [5]; ///  array to sort;
+                    strray[0] = array[1];
+                    strray[1] = new ThreeCard (carrd[CardDistribution[0][3] - 1], carrd[CardDistribution[0][4] - 1], carrd[CardDistribution[0][5] - 1]); 
+                    strray[2] = new ThreeCard (carrd[CardDistribution[1][3] - 1], carrd[CardDistribution[1][4] - 1], carrd[CardDistribution[1][5] - 1]); 
+                    strray[3] = new ThreeCard (carrd[CardDistribution[2][3] - 1], carrd[CardDistribution[2][4] - 1], carrd[CardDistribution[2][5] - 1]); 
+                    ThreeCard trray [] = new ThreeCard [5]; /// temporary array to check out;
+                    for (int i = 0; i < 4; i++) {
+                        trray[i] = strray[i];
+                    }
+                    Sort = new ThreeCardSort  (strray);
+                   
+                    
+                    int chosenIndex = 0 ; 
+                    for (int i = 0; i < 4; i++) {
+                       if (strray[0] == trray[i]) {
+                           chosenIndex = i; /// found the person who got the lead;
+                           break;
+                       } 
+                    }
+                    
+                    /**
+                     * player     code        imageIcon
+                     * user       0           arrowDown
+                     * East       1           arrowRight
+                     * North      2           arrowUp
+                     * West       3           arrowLeft
+                     */
+                    
+                    Direction.setText("comparing...");
+                    
+                    try {
+                        sleep(500); 
+                    } catch (Exception ee) {
+                        ee.printStackTrace();
+                    }
+                    Direction.setText(null);
+                    if (chosenIndex == 0) {
+                        System.out.println ("user took the lead and has gotten point = " + SecondRoundPoint );
+                        userPoint += SecondRoundPoint;
+                        try {
+                            Direction.setIcon(new ImageIcon (ImageIO.read(new File ("arrowDown.png"))));
+                        } catch (IOException ex) {
+                            Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    else if (chosenIndex == 1) {
+                        System.out.println ("East took the lead and has gotten point = " + SecondRoundPoint);
+                        eastPoint += SecondRoundPoint;
+                        try {
+                            Direction.setIcon(new ImageIcon (ImageIO.read(new File ("arrowRight.png"))));
+                        } catch (IOException ex) {
+                            Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    else if (chosenIndex == 2) {
+                        System.out.println ("Nort took the lead and has gotten point = " + SecondRoundPoint);
+                        northPoint += SecondRoundPoint;
+                        try {
+                            Direction.setIcon(new ImageIcon (ImageIO.read(new File ("arrowUp.png"))));
+                        } catch (IOException ex) {
+                            Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    else {
+                        westPoint += SecondRoundPoint;
+                        System.out.println ("West took the lead and has gotten point = " + SecondRoundPoint);
+                        try {
+                            Direction.setIcon(new ImageIcon (ImageIO.read(new File ("arrowLeft.png"))));
+                        } catch (IOException ex) {
+                            Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                }
+                else if (counter == 2) {
+                    int ThirdRoundPoint = 0; 
+                    myFirstThreeCardLabelNo1.setIcon(new ImageIcon (array[2].first_card.bufferedimage));
+                    myFirstThreeCardLabelNo2.setIcon(new ImageIcon (array[2].second_card.bufferedimage));
+                    myFirstThreeCardLabelNo3.setIcon(new ImageIcon (array[2].third_card.bufferedimage));
+                    
+                    ThirdRoundPoint += array[2].first_card.point; 
+                    ThirdRoundPoint += array[2].second_card.point;
+                    ThirdRoundPoint += array[2].third_card.point;
+                    
+                    try { 
+                        putEmptyCard (array[2]);
+                        sleep (1000); 
+                    } catch (IOException ex) {
+                        Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    EastChalLabelT.setIcon(new ImageIcon (carrd[CardDistribution[0][6] - 1].bufferedimage));
+                    EastChalLabel1.setIcon(new ImageIcon (carrd[CardDistribution[0][7] - 1].bufferedimage));
+                    EastChalLabel2.setIcon(new ImageIcon (carrd[CardDistribution[0][8] - 1].bufferedimage));
+                    
+                    
+                    ThirdRoundPoint += carrd[CardDistribution[0][6] - 1].point; 
+                    ThirdRoundPoint += carrd[CardDistribution[0][7] - 1].point; 
+                    ThirdRoundPoint += carrd[CardDistribution[0][8] - 1].point; 
+                    
+                    
+                    try {
+                        sleep (1000); 
+                    }catch (Exception ee) {
+                        ee.printStackTrace();
+                    }
+                    NorthChalLabel1.setIcon(new ImageIcon (carrd[CardDistribution[1][6] - 1].bufferedimage));
+                    NorthChalLabel2.setIcon(new ImageIcon (carrd[CardDistribution[1][7] - 1].bufferedimage));
+                    NorthChalLabel3.setIcon(new ImageIcon (carrd[CardDistribution[1][8] - 1].bufferedimage));
+                    
+                    
+                    ThirdRoundPoint += carrd[CardDistribution[1][6] - 1].point; 
+                    ThirdRoundPoint += carrd[CardDistribution[1][7] - 1].point; 
+                    ThirdRoundPoint += carrd[CardDistribution[1][8] - 1].point; 
+                    
+                    try {
+                        sleep (1000); 
+                    }catch (Exception ee) {
+                        ee.printStackTrace();
+                    }
+                    WestChalLabel1.setIcon(new ImageIcon (carrd[CardDistribution[2][6] - 1].bufferedimage));
+                    WestChalLabel2.setIcon(new ImageIcon (carrd[CardDistribution[2][7] - 1].bufferedimage));
+                    WestChalLabel3.setIcon(new ImageIcon (carrd[CardDistribution[2][8] - 1].bufferedimage));
+                    
+                    
+                    ThirdRoundPoint += carrd[CardDistribution[2][6] - 1].point; 
+                    ThirdRoundPoint += carrd[CardDistribution[2][7] - 1].point; 
+                    ThirdRoundPoint += carrd[CardDistribution[2][8] - 1].point; 
+                    
+                    
+                    /**
+                     * here i will find which player will take the lead ...
+                     * for this i will sort the four three card (of course it will be in decending order ) 
+                     * then i will chose who gets the largest;
+                     */
+                    
+                    ThreeCard strray[] = new ThreeCard [5]; ///  array to sort;
+                    strray[0] = array[2];
+                    strray[1] = new ThreeCard (carrd[CardDistribution[0][6] - 1], carrd[CardDistribution[0][7] - 1], carrd[CardDistribution[0][8] - 1]); 
+                    strray[2] = new ThreeCard (carrd[CardDistribution[1][6] - 1], carrd[CardDistribution[1][7] - 1], carrd[CardDistribution[1][8] - 1]); 
+                    strray[3] = new ThreeCard (carrd[CardDistribution[2][6] - 1], carrd[CardDistribution[2][7] - 1], carrd[CardDistribution[2][8] - 1]); 
+                    ThreeCard trray [] = new ThreeCard [5]; /// temporary array to check out;
+                    for (int i = 0; i < 4; i++) {
+                        trray[i] = strray[i];
+                    }
+                    Sort = new ThreeCardSort  (strray);
+                   
+                    
+                    int chosenIndex = 0 ; 
+                    for (int i = 0; i < 4; i++) {
+                       if (strray[0] == trray[i]) {
+                           chosenIndex = i; /// found the person who got the lead;
+                           break;
+                       } 
+                    }
+                    /**
+                     * player     code        imageIcon
+                     * user       0           arrowDown
+                     * East       1           arrowRight
+                     * North      2           arrowUp
+                     * West       3           arrowLeft
+                     */
+                    
+                    Direction.setText("comparing...");
+                    
+                    try {
+                        sleep(500); 
+                    } catch (Exception ee) {
+                        ee.printStackTrace();
+                    }
+                    Direction.setText(null);
+                    if (chosenIndex == 0) {
+                        System.out.println ("user took the lead and get point ==" + ThirdRoundPoint);
+                        userPoint += ThirdRoundPoint; 
+                        try {
+                            Direction.setIcon(new ImageIcon (ImageIO.read(new File ("arrowDown.png"))));
+                        } catch (IOException ex) {
+                            Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    else if (chosenIndex == 1) {
+                        System.out.println ("East took the leadand get point ==" + ThirdRoundPoint);
+                        eastPoint += ThirdRoundPoint; 
+                        try {
+                            Direction.setIcon(new ImageIcon (ImageIO.read(new File ("arrowRight.png"))));
+                        } catch (IOException ex) {
+                            Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    else if (chosenIndex == 2) {
+                        System.out.println ("Nort took the lead and get point ==" + ThirdRoundPoint);
+                        northPoint += ThirdRoundPoint; 
+                        try {
+                            Direction.setIcon(new ImageIcon (ImageIO.read(new File ("arrowUp.png"))));
+                        } catch (IOException ex) {
+                            Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    else {
+                        System.out.println ("West took the lead and get point ==" + ThirdRoundPoint);
+                        westPoint += ThirdRoundPoint;
+                        try {
+                            Direction.setIcon(new ImageIcon (ImageIO.read(new File ("arrowLeft.png"))));
+                        } catch (IOException ex) {
+                            Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                }
+                else if (counter == 3) {
+                    myFirstThreeCardLabelNo1.setIcon(new ImageIcon (array[3].first_card.bufferedimage));
+                    myFirstThreeCardLabelNo2.setIcon(new ImageIcon (array[3].second_card.bufferedimage));
+                    myFirstThreeCardLabelNo3.setIcon(new ImageIcon (array[3].third_card.bufferedimage));
+                    ImageIcon II = (ImageIcon) MakerLabel13.getIcon();
+                    myFirstThreeCardLabelNo.setIcon(II);
+                    
+                    int FourthRoundPoint = 0; 
+                    
+                    FourthRoundPoint += array[3].first_card.point;
+                    FourthRoundPoint += array[3].second_card.point;
+                    FourthRoundPoint += array[3].third_card.point;
+                    //FourthRoundPoint += carrd[CardDistribution[3][12] - 1].point
+                    /*** find the extra card which is necessary for the point **/
+                                int exPoint = 0;
+                    for (int i = 0; i < 13; i++) {
+                        ImageIcon ii = new ImageIcon (carrd [CardDistribution[3][i] - 1].bufferedimage);
+                        if (II.getImage() == ii.getImage()) {
+                            exPoint = carrd[CardDistribution[3][i] - 1].point;
+                            break;
+                        }
+                    }
+                    FourthRoundPoint += exPoint;
+                    
+                    try {
+                        MakerLabel13.setIcon(new ImageIcon (ImageIO.read(new File ("Capture.png"))));
+                    } catch (IOException ex) {
+                        Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    try {
+                        putEmptyCard (array[3]);
+                        sleep (1000); 
+                    } catch (IOException ex) {
+                        Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    EastChalLabelT.setIcon(null);
+                    EastChalLabel1.setIcon(new ImageIcon (carrd[CardDistribution[0][9] - 1].bufferedimage));
+                    EastChalLabel2.setIcon(new ImageIcon (carrd[CardDistribution[0][10] - 1].bufferedimage));
+                    EastLabel.setIcon(new ImageIcon (carrd[CardDistribution[0][11] - 1].bufferedimage));
+                    EastChalLabel.setIcon(new ImageIcon (carrd[CardDistribution[0][12] - 1].bufferedimage));
+                    
+                    try {
+                        sleep (1000);  /// wait for 1 s;
+                    }catch (Exception ee) {
+                        ee.printStackTrace();
+                    }
+                    NorthChalLabel1.setIcon(new ImageIcon (carrd[CardDistribution[1][9] - 1].bufferedimage));
+                    NorthChalLabel2.setIcon(new ImageIcon (carrd[CardDistribution[1][10] - 1].bufferedimage));
+                    NorthChalLabel3.setIcon(new ImageIcon (carrd[CardDistribution[1][11] - 1].bufferedimage));
+                    NorthChalLabel.setIcon(new ImageIcon (carrd[CardDistribution[1][12] - 1].bufferedimage));
+                    try {
+                        sleep (1000); 
+                    }catch (Exception ee) {
+                        ee.printStackTrace();
+                    }
+                    WestChalLabel1.setIcon(new ImageIcon (carrd[CardDistribution[2][9] - 1].bufferedimage));
+                    WestChalLabel2.setIcon(new ImageIcon (carrd[CardDistribution[2][10] - 1].bufferedimage));
+                    WestChalLabel3.setIcon(new ImageIcon (carrd[CardDistribution[2][11] - 1].bufferedimage));
+                    WestChalLabel.setIcon(new ImageIcon (carrd[CardDistribution[2][12] - 1].bufferedimage));
+                    
+                    for (int i = 0; i < 3; i++) {
+                        for (int j = 9; j <= 12; j++) {
+                            FourthRoundPoint += carrd[CardDistribution[i][j] - 1].point;
+                        }
+                    }
+                    
+                    /**
+                     * here i will find which player will take the lead ...
+                     * for this i will sort the four three card (of course it will be in decending order ) 
+                     * then i will chose who gets the largest;
+                     */
+                    
+                    ThreeCard strray[] = new ThreeCard [5]; ///  array to sort;
+                    strray[0] = array[3];
+                    strray[1] = new ThreeCard (carrd[CardDistribution[0][9] - 1], carrd[CardDistribution[0][10] - 1], carrd[CardDistribution[0][11] - 1]); 
+                    strray[2] = new ThreeCard (carrd[CardDistribution[1][9] - 1], carrd[CardDistribution[1][10] - 1], carrd[CardDistribution[1][11] - 1]); 
+                    strray[3] = new ThreeCard (carrd[CardDistribution[2][9] - 1], carrd[CardDistribution[2][10] - 1], carrd[CardDistribution[2][11] - 1]); 
+                    ThreeCard trray [] = new ThreeCard [5]; /// temporary array to check out;
+                    for (int i = 0; i < 4; i++) {
+                        trray[i] = strray[i];
+                    }
+                    Sort = new ThreeCardSort  (strray);
+                   
+                    
+                    int chosenIndex = 0 ; 
+                    for (int i = 0; i < 4; i++) {
+                       if (strray[0] == trray[i]) {
+                           chosenIndex = i; /// found the person who got the lead;
+                           break;
+                       } 
+                    }
+                    /**
+                     * player     code        imageIcon
+                     * user       0           arrowDown
+                     * East       1           arrowRight
+                     * North      2           arrowUp
+                     * West       3           arrowLeft
+                     */
+                    
+                    Direction.setText("comparing...");
+                    
+                    try {
+                        sleep(500); 
+                    } catch (Exception ee) {
+                        ee.printStackTrace();
+                    }
+                    Direction.setText(null);
+                    
+                    if (chosenIndex == 0) {
+                        System.out.println ("user took the lead and get point = " + FourthRoundPoint);
+                        userPoint += FourthRoundPoint ; 
+                        try {
+                            Direction.setIcon(new ImageIcon (ImageIO.read(new File ("arrowDown.png"))));
+                        } catch (IOException ex) {
+                            Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    else if (chosenIndex == 1) {
+                        System.out.println ("East took the lead and get point = " + FourthRoundPoint);
+                        eastPoint += FourthRoundPoint ;
+                        try {
+                            Direction.setIcon(new ImageIcon (ImageIO.read(new File ("arrowRight.png"))));
+                        } catch (IOException ex) {
+                            Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    else if (chosenIndex == 2) {
+                        System.out.println ("Nort took the lead and get point = " + FourthRoundPoint);
+                        northPoint += FourthRoundPoint;
+                        try {
+                            Direction.setIcon(new ImageIcon (ImageIO.read(new File ("arrowUp.png"))));
+                        } catch (IOException ex) {
+                            Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    else {
+                        System.out.println ("West took the lead and get point = " + FourthRoundPoint);
+                        westPoint += FourthRoundPoint;
+                        try {
+                            Direction.setIcon(new ImageIcon (ImageIO.read(new File ("arrowLeft.png"))));
+                        } catch (IOException ex) {
+                            Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    ShowScoreBoard (); 
+                }
+                counter++;
+                
+            }
+        }; 
+        wait_.start();
+    }//GEN-LAST:event_jButton3ActionPerformed
+    ScoreBoard sb = new ScoreBoard ();
+    private void ShowScoreBoard () {
+        sb.ShowOnList(userPoint , eastPoint , northPoint , westPoint);
+        sb.setVisible(true);
+        
+        add (sb);
+                
+    }
+    
     private void kMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kMouseDragged
         JComponent jcomp = (JComponent) evt.getSource(); 
         TransferHandler thand = jcomp.getTransferHandler(); 
@@ -1536,47 +2194,53 @@ public class myGameFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_mMouseDragged
 
     private void MakerLabel13MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MakerLabel13MouseDragged
-        // TODO add your handling code here:
+        JComponent Jcomp = (JComponent) evt.getSource(); 
+        TransferHandler thand = Jcomp.getTransferHandler(); 
+        thand.exportAsDrag(Jcomp, evt, TransferHandler.MOVE);
     }//GEN-LAST:event_MakerLabel13MouseDragged
-
+    private int index_1st_East , index_2nd_East , index_3rd_East , index_4th_East , index_5th_East , index_6th_East , index_7th_East;
+    private int index_8th_East , index_9th_East , index_10th_East , index_11th_East , index_12th_East , index_13th_East;
+    private int CardDistribution[][] = new int[5][15]; 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        Integer [] arra = new Integer[] {1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 , 11 , 12 , 13};
+        Integer [] arra = new Integer[] {
+            1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 , 11 , 12 , 13 , 
+            14 , 15 , 16 , 17 , 18 , 19 , 20 , 21 , 22 , 23 , 24 , 
+            25 , 26 , 27 , 28 , 29 , 30 , 31 , 32 , 33 , 34 , 35 , 36 , 
+            37 , 38 , 39 , 40 , 41 , 42 , 43 , 44 , 45 , 46 , 47 , 48 , 49 , 50 , 51 , 52 
+        };
         Collections.shuffle(Arrays.asList (arra));
-        
-                    int index_1st = arra[0];
-                    int index_2nd = arra[1];
-                    int index_3rd = arra[2]; 
+                   for (int i = 0; i < 4; i++) {
+                       for (int j = 0; j < 13; j++) {
+                           CardDistribution[i][j] = arra[(j * 4) + i];
+                           int index = CardDistribution[i][j] - 1;
+                        object_card tt = carrd[index]; 
+                        System.out.println (tt.name + " " + tt.suit + " " + tt.value + " " + tt.point);
+                       
+                       }
+                       System.out.println (); 
+                   } 
+                   for (int i = 0; i < 13; i++) {
+                       int index = CardDistribution[0][i] - 1;
+                       object_card tt = carrd[index]; 
+                       System.out.println (tt.name + " " + tt.suit + " " + tt.value + " " + tt.point);
+                       
+                   }
+                    object_card one = carrd[CardDistribution[3][0] - 1]; 
+                    object_card two = carrd[CardDistribution[3][1] - 1];
+                    object_card three = carrd[CardDistribution[3][2] - 1]; 
 
+                    object_card four = carrd[CardDistribution[3][3] - 1]; 
+                    object_card five = carrd[CardDistribution[3][4] - 1];
+                    object_card six = carrd[CardDistribution[3][5] - 1]; 
 
-                    int index_4th = arra[3];
-                    int index_5th = arra[4];
-                    int index_6th = arra[5]; 
-
-                    int index_7th = arra[6];
-                    int index_8th = arra[7];
-                    int index_9th = arra[8]; 
+                    object_card seven = carrd[CardDistribution[3][6] - 1]; 
+                    object_card eight = carrd[CardDistribution[3][7] - 1];
+                    object_card nine = carrd[CardDistribution[3][8] - 1]; 
                     
-                    int index_10th = arra[9]; 
-                    int index_11th = arra[10]; 
-                    int index_12th = arra[11]; 
-                    int index_13th = arra[12]; 
-                    
-                    object_card one = carrd[index_1st - 1]; 
-                    object_card two = carrd[index_2nd - 1];
-                    object_card three = carrd[index_3rd - 1]; 
-
-                    object_card four = carrd[index_4th - 1]; 
-                    object_card five = carrd[index_5th - 1];
-                    object_card six = carrd[index_6th - 1]; 
-
-                    object_card seven = carrd[index_7th - 1]; 
-                    object_card eight = carrd[index_8th - 1];
-                    object_card nine = carrd[index_9th - 1]; 
-                    
-                    object_card ten = carrd[index_10th - 1]; 
-                    object_card eleven = carrd[index_11th - 1]; 
-                    object_card twelve = carrd[index_12th - 1]; 
-                    object_card thirteen = carrd[index_13th - 1]; 
+                    object_card ten = carrd[CardDistribution[3][9] - 1]; 
+                    object_card eleven = carrd[CardDistribution[3][10] - 1]; 
+                    object_card twelve = carrd[CardDistribution[3][11] - 1]; 
+                    object_card thirteen = carrd[CardDistribution[3][12] - 1]; 
                     
                     a.setIcon(new ImageIcon (one.bufferedimage));
                     b.setIcon(new ImageIcon (two.bufferedimage));
@@ -1597,7 +2261,7 @@ public class myGameFrame extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException{
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -1624,12 +2288,22 @@ public class myGameFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new myGameFrame().setVisible(true);
+                try {
+                    new myGameFrame().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(myGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Direction;
+    private javax.swing.JLabel EastChalLabel;
+    private javax.swing.JLabel EastChalLabel1;
+    private javax.swing.JLabel EastChalLabel2;
+    private javax.swing.JLabel EastChalLabelT;
+    private javax.swing.JLabel EastLabel;
     private javax.swing.JLabel J;
     private javax.swing.JLabel L;
     private javax.swing.JLabel MakerLabel1;
@@ -1658,18 +2332,17 @@ public class myGameFrame extends javax.swing.JFrame {
     private javax.swing.JLabel Nj;
     private javax.swing.JLabel Nm;
     private javax.swing.JLabel Nn;
+    private javax.swing.JLabel NorthChalLabel;
+    private javax.swing.JLabel NorthChalLabel1;
+    private javax.swing.JLabel NorthChalLabel2;
+    private javax.swing.JLabel NorthChalLabel3;
+    private javax.swing.JLabel WestChalLabel;
+    private javax.swing.JLabel WestChalLabel1;
+    private javax.swing.JLabel WestChalLabel2;
+    private javax.swing.JLabel WestChalLabel3;
     private javax.swing.JLabel a;
     private javax.swing.JLabel b;
     private javax.swing.JLabel c;
-    private javax.swing.JLabel computerFirstThreeCardLabelNo1;
-    private javax.swing.JLabel computerFirstThreeCardLabelNo2;
-    private javax.swing.JLabel computerFirstThreeCardLabelNo3;
-    private javax.swing.JLabel computerFirstThreeCardLabelNo4;
-    private javax.swing.JLabel computerFirstThreeCardLabelNo5;
-    private javax.swing.JLabel computerFirstThreeCardLabelNo6;
-    private javax.swing.JLabel computerFirstThreeCardNo4;
-    private javax.swing.JLabel computerFirstThreeCardNo5;
-    private javax.swing.JLabel computerFirstThreeCardNo6;
     private javax.swing.JLabel d;
     private javax.swing.JLabel e;
     private javax.swing.JLabel ea;
@@ -1702,6 +2375,7 @@ public class myGameFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel k;
     private javax.swing.JLabel m;
+    private javax.swing.JLabel myFirstThreeCardLabelNo;
     private javax.swing.JLabel myFirstThreeCardLabelNo1;
     private javax.swing.JLabel myFirstThreeCardLabelNo2;
     private javax.swing.JLabel myFirstThreeCardLabelNo3;

@@ -151,6 +151,54 @@ public class ValueFromChecker {
             }
         }
     }
+    public ThreeCard greaterTwin () {
+        int ffv = first_3_card.first_card.value;
+        int fsv = first_3_card.second_card.value;
+        int ftv = first_3_card.third_card.value;
+        
+        int sfv = second_3_card.first_card.value;
+        int ssv = second_3_card.second_card.value;
+        int stv = second_3_card.third_card.value;
+        
+        int frr [] = new int [3];
+        int srr [] = new int [3];
+        frr[0] = ffv; frr[1] = fsv;  frr[2] = ftv; 
+        srr[0] = sfv; srr[1] = ssv;  srr[2] = stv;
+        Arrays.sort(frr , 0 , 3);
+        Arrays.sort(srr , 0 , 3);
+        int fp1 , fp2 , sp1 ,  sp2 , ft , st ;// take the pairing card .
+        if (frr[0] == frr[1]) {
+            fp1 = 0; fp2 = 1;
+            ft = 2;
+        }
+        else {
+            fp1 = 1; fp2 = 2;
+            ft = 0;
+        }
+        if (srr[0] == srr[1] ) {
+            sp1 = 0; sp2 = 1;
+            st = 2;
+        }
+        else {
+            sp1 = 1; sp2 = 2;
+            st = 0;
+        }
+        if (frr[fp1] > srr[sp1]) {
+            return first_3_card;
+        }
+        else if (srr[sp1] > frr[fp1]) {
+            return second_3_card;
+        }
+        else {
+            if (frr[ft] > srr[st]) {
+                
+                return first_3_card;
+            }
+            else {
+                return second_3_card;
+            }
+        }
+    }
     public ThreeCard MaxThreeCard () {
         int x = getFirstCardValue (); 
         int y = getSecondCardValue (); 
@@ -162,6 +210,9 @@ public class ValueFromChecker {
             return second_3_card; 
         }
         else  {
+            if (x == 2) {
+                return greaterTwin();
+            }
             int z = getLargeCardWhenEqual ();
             if (z == 1) {
                 return first_3_card; 
@@ -171,4 +222,19 @@ public class ValueFromChecker {
             }
         }
     }
+    /**
+    public static void main (String [] args) throws IOException {
+        DeckOfCards doc = new DeckOfCards ();
+        object_card arra [] = new object_card [55]; 
+        arra = doc.carrd;
+        ThreeCard a = new ThreeCard (arra[1] , arra[14] , arra[0]); 
+        ThreeCard b = new ThreeCard (arra[2] , arra[15], arra[11]); 
+        ValueFromChecker  ch = new ValueFromChecker (a , b); 
+        ThreeCard tc = ch.MaxThreeCard();
+        System.out.println (tc.first_card.name +  " " + tc.first_card.suit + " "  + tc.first_card.value);
+        
+        System.out.println (tc.first_card.name +  " " + tc.second_card.suit + " "  + tc.second_card.value);
+        
+        System.out.println (tc.first_card.name +  " " + tc.third_card.suit + " "  + tc.third_card.value);
+    }**/
 }

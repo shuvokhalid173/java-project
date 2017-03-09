@@ -20,7 +20,8 @@ public class WiningAnnouncement {
     JDialog Dbox;
     WiningAnnouncement (String msg) {
         this.message = msg;
-        msgboxframe = new JFrame (); 
+        msgboxframe = new JFrame ();
+        
         msgbutton = new JButton ("ok"); 
         Dbox = new JDialog (msgboxframe , "Result" , true); 
         Dbox.setLayout (new FlowLayout ());
@@ -32,9 +33,10 @@ public class WiningAnnouncement {
                  
             }
         });
+       
         Dbox.add(new JLabel (message));
         Dbox.add(msgbutton); 
-        Dbox.setSize(300 , 100);
+        Dbox.setSize(300 , 300);
         Dbox.setForeground(Color.red);
         Dbox.setVisible(true);
     }

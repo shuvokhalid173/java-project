@@ -4,9 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/ss/Documents/NetBeansProjects/game/src/myGameFrame.java</file>
-            <file>file:/C:/Users/ss/Documents/NetBeansProjects/game/src/ThreeCardChecker.java</file>
-            <file>file:/C:/Users/ss/Documents/NetBeansProjects/game/src/testClass.java</file>
-            <file>file:/C:/Users/ss/Documents/NetBeansProjects/game/src/ValueFromChecker.java</file>
+            <file>file:/C:/Users/ss/Documents/NetBeansProjects/game/src/WiningAnnouncement.java</file>
+            <file>file:/C:/Users/ss/Documents/NetBeansProjects/game/src/DeckOfCards.java</file>
+            <file>file:/C:/Users/ss/Documents/NetBeansProjects/game/src/ScoreBoard.java</file>
+            <file>file:/C:/Users/ss/Documents/NetBeansProjects/game/src/game/Game.java</file>
         </group>
     </open-files>
 </project-private>
